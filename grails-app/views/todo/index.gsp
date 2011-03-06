@@ -1,8 +1,10 @@
 <%@page import="com.hk.util.FileLine"%>
 <%@page import="org.junit.internal.matchers.CombinableMatcher"%>
-<TITLE>UsToDo ${seq} [${srchstr}] 
+<TITLE>UsToDo [${srchstr}] 
 </TITLE>
-<body bgcolor="white">
+<body bgcolor="FFFFCC">
+<auth:logoutLink success="[controller:'home', action:'newUser']"
+    error="[controller:'userProfile', action:'error']">${user1} log out</auth:logoutLink>
 <font color=blue face="Arial"> <%--  ===== HEADER AND SEARCH FORM ====== --%>
 <div class="form"><%--<formset>--%> <g:form action="index">
 	<label for="userId"></label>
@@ -12,7 +14,7 @@
 	<g:submitButton name="search" value="Do" />
 	<g:checkBox name="cbword" value="${cbword}" /> word
 	 <g:checkBox name="cborder" value="${cborder}" /> order
-	 <g:checkBox name="cbprox" value="${cbprox}" /> prox
+	 <g:checkBox name="cbclose" value="${cbclose}" /> close
 	<g:textField size="1" name="maxAge" value="${maxAge}" />&nbsp;old
 </g:form> <%--</formset>--%></div>
 
@@ -20,7 +22,6 @@
 	${fqFileName}
 	
 </g:if>
-
 
 
 <%--  ===== LIST OUTPUT HERE ====== --%>
@@ -36,16 +37,13 @@
 
 				<%--REVERSE COUNTER--%>
 				<td><font color="purple" size=-1>  ${fl.ageLetter} </font></td>
-				<td><font color="blue" size=-1>  ${(alFileLines.size-i).toString()}
+				<td><font color="blue" size=-1>  ${(i+1).toString()}
 				</font></td>
 				<td><g:checkBox name="cbword" value="${cbword}" /></td>
 				<td><SELECT NAME="gourl">
-					<OPTION VALUE="c">
-					<OPTION VALUE="Now1">m
-					<OPTION VALUE="Today2">h
-					<OPTION VALUE="Today2">d
-					<OPTION VALUE="Today2">w
-					<OPTION VALUE="Today2">m
+					<OPTION VALUE="def">
+					<OPTION VALUE="del">del
+					<OPTION VALUE="touch">upd
 				</SELECT></td>
 
 				<td><font color=${ (i % 2) ==0?"black" : "grey" }>&nbsp;
@@ -60,7 +58,7 @@
 <g:if test="${flash.message}">
 </g:if>
 <g:else>
-<p>	${fqFileName}
+<p>	${}
 </g:else>
 
 
