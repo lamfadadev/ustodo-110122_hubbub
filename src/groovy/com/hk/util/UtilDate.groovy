@@ -42,14 +42,11 @@ class UtilDate {
 			long _ss =                 1;
 
 			if (ago < _ss)
-				return "s"
-			else if (ago < Math.round(ago/_mn))
-			{
-			}
+				return "1s"
 			else if (ago < _hh)
 			{
 				int ageInMins = Math.round(ago/_mn);
-				return ageInMins+"m"
+				return ageInMins+"mn"
 			}
 			
 			else if (ago < _dd)
@@ -72,7 +69,12 @@ class UtilDate {
 				int ageInMo = Math.round(ago/(int) (30.5*24*3600));
 				return ageInMo+"m"
 			}
-			
+			else 
+			{
+				int ageInMo = Math.round(ago/((int)_yyyy));
+				return ageInMo+"y"
+			}
+
 			return "" 
 
 
@@ -94,9 +96,9 @@ class UtilDate {
 //				return"s"
 		} catch ( Exception e)
 		{
-			System.err.println ("error converting date ["+d+"] " + e.getMessage());
+			//System.err.println ("error converting date ["+d+"] " + e.getMessage());
 			//e.printStackTrace();
-			return "E";
+			return "1+y";
 		}
 
 

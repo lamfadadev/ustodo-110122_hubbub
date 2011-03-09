@@ -2,9 +2,9 @@
 <%@page import="org.junit.internal.matchers.CombinableMatcher"%>
 <TITLE>UsToDo [${srchstr}] 
 </TITLE>
-<body bgcolor="FFFFCC">
+<body bgcolor="FFFFFF">
 <auth:logoutLink success="[controller:'home', action:'newUser']"
-    error="[controller:'userProfile', action:'error']">${user1} log out</auth:logoutLink>
+    error="[controller:'userProfile', action:'error']">${user1} logoff</auth:logoutLink>
 <font color=blue face="Arial"> <%--  ===== HEADER AND SEARCH FORM ====== --%>
 <div class="form"><%--<formset>--%> <g:form action="index">
 	<label for="userId"></label>

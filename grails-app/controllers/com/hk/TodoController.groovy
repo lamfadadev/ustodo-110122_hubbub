@@ -24,6 +24,10 @@ class TodoController {
 		return s;
 	}
 	
+	def mainhk1 = {
+	
+	}
+	
 	def index = {
 		
 		if (!authenticationService.isLoggedIn(request))
@@ -61,7 +65,7 @@ class TodoController {
 //			else
 //				O.o("SEEMS LIKE FILE EXISTS:" + fqFileName);
 				
-				// WRITE
+			// WRITE WRITE WRITE WRITE WRITE WRITE WRITE WRITE WRITE WRITE WRITE WRITE WRITE 
 			if (srchstr.trim().startsWith("w ") || srchstr.trim().endsWith(" w") )
 			{
 				bwrite = true;
@@ -69,21 +73,25 @@ class TodoController {
 					srchstr = srchstr[2..-1] // remove "w "
 				if (srchstr.trim().endsWith(" w"))
 					srchstr = srchstr[0..(srchstr.length()-2)] // remove " w"
+					
+				srchstr = srchstr.trim();
 	
 				String lineout = com.hk.util.UtilDate.getDateForFile() + " " + srchstr;
-	
-				O.o("try existing file:" + fqFileName);
+				O.o("saved lineout:" + lineout.toString());
+				//O.o("try existing file:" + fqFileName );
 				new File(fqFileName).withWriterAppend { out ->
 					out.writeLine(lineout);
 				}
+				mode = "Saved: [" + lineout+ "] &nbsp;"
 				
 				flash['message'] = " [" + lineout + "]"
-				srchstr = srchstr [0..(srchstr.lastIndexOf('/')-1)]
-				if (seq %2 == 0)
+				//O.o("write pos last / [" + srchstr.lastIndexOf('/') + "] on str [" + srchstr + "]");
+				srchstr = srchstr [0..(srchstr.lastIndexOf('/')-1)] + "/"
+				//O.o "ss:" + srchstr;
+				//if (seq %2 == 0)
 					s3="red"
-				else
-					s3="orange"
-				mode = "wrote [" + srchstr+ "] &nbsp;"
+				//else
+					//s3="orange"
 			}
 	
 			String srchstrPostWriteStripInstance = srchstr;
@@ -105,11 +113,11 @@ class TodoController {
 					{
 						if (srchWrd.startsWith("-")) // subtractive search
 	                    {
-							O.o ((new Date()).toString() + "in sub testing neg on [" + srchWrd[1..-1] + "]");
+							//O.o ((new Date()).toString() + "in sub testing neg on [" + srchWrd[1..-1] + "]");
 							if (fileLineRaw.contains(srchWrd[1..-1]))
 							{
 								hitRemove = true;
-								O.o ((new Date()).toString() + "hit remove yes false");
+								//O.o ((new Date()).toString() + "hit remove yes false");
 							}						
 						}
 						else // positive search
@@ -117,6 +125,9 @@ class TodoController {
 							if (!fileLineRaw.contains(srchWrd))
 							{
 								hitRemove = true;
+							} else
+							{
+								//O.o ((new Date()).toString() + "found match on searchword [" + srchWrd + "]");
 							}
 						}
 					}
