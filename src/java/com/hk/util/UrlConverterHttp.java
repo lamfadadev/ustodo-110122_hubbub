@@ -23,7 +23,7 @@ public class UrlConverterHttp {
 
 	            URL url = new URL(item);
 	            String link = url.getProtocol() + "://" + url.getHost()  + (url.getPath() == null ? "" : url.getPath()) + (url.getQuery() == null ? "" : "?" + url.getQuery());
-	            O.o("link [" + link +  "]");
+	            //O.o("link [" + link +  "]");
 	            rtn = StringUtils.replace(rtn, item, "<a rel=\"nofollow\" href=\"" + link + "\">" + link + "</a> ");
 	        } catch (MalformedURLException ignore) {
 	        }

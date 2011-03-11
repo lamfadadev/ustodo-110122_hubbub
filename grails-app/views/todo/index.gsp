@@ -51,17 +51,30 @@
 
 				<%--REVERSE COUNTER--%>
 				<td><font color="purple" size=-1>  ${fl.ageLetter} </font></td>
+
+				<td><g:if test="${maxAge.contains('+')}">
 				<td><font color="blue" size=-1>  ${(i+1).toString()}
+				</g:if>
+
+
 				</font></td>
 				<td><g:checkBox name="cbword" value="${cbword}" /></td>
-				<td><SELECT NAME="gourl">
-					<OPTION VALUE="def">
-					<OPTION VALUE="del">del
-					<OPTION VALUE="touch">upd
+					<g:if test="${maxAge.contains('+')}">
+						<td><SELECT NAME="gourl">
+						<OPTION VALUE="def">
+						<OPTION VALUE="del">del
+						<OPTION VALUE="touch">upd
+					</g:if></td>
 				</SELECT></td>
 
 				<td><font color=${ (i % 2) ==0?"black" : "grey" }>&nbsp;
-				${fl.lineMinusDateStr} </font></td>
+
+				<g:if test="${maxAge.contains('+')}">
+					<font size=-1 color="green"> ${fl.fileLineNumThisLine1Based} </font> : 
+				</g:if></td>
+				 
+				
+				<td>${fl.lineMinusDateStr} </font></td>
 
 				<%--<g:createLink url="[controller:'milesAccount', action:'generateTooltip', params:[id:${it.id}, extra:'extra']]" />--%>
 

@@ -7,13 +7,13 @@ import java.sql.Date;
 class FileLine {
 	String lineMinusDateStr
 	String date
-	int fileLineNumThisLine
+	int fileLineNumThisLine1Based
 	String ageLetter
 
-	public FileLine(int fileLineNumThisLine, String fileLineRaw)
+	public FileLine(int fileLineNumThisLine1Based, String fileLineRaw)
 	{
 		try {
-			this.fileLineNumThisLine = fileLineNumThisLine
+			this.fileLineNumThisLine1Based = fileLineNumThisLine1Based
 			date = fileLineRaw[0..18]
 			lineMinusDateStr = fileLineRaw[19..-1]
 			ageLetter = com.hk.util.UtilDate.renderAgeAsLetterFromNowToFileDateStr (date)

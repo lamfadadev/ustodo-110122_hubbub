@@ -3,7 +3,9 @@
 <html>
 <head>
  <TITLE>UsToDo [${srchstr}]</TITLE>
+ <g:javascript library="jquery"/>
  <meta name="layout" content="main"></meta>
+ <g:javascript library="jquery"/>
  
  <%-- from http://grails.1312388.n4.nabble.com/jQuery-Autocomplete-td2526439.html--%>
  

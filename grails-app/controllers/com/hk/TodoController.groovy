@@ -103,6 +103,7 @@ class TodoController {
 			// FOR EACH FILE LINE
 			f.eachLine
 			{
+				i++; // 1based line num counter 
 				String fileLineRaw = ((String) it).trim();
 				String fileLineRawLower = fileLineRaw.toLowerCase();
 				// FOR EACH SRCH WORD MATCH MATCH MATCH MATCH MATCH
@@ -142,10 +143,10 @@ class TodoController {
 					if (fileLineRawURL != null)
 					{
 						fileLineRaw = fileLineRawURL;
-						O.o("converted fileLineRaw: "+fileLineRaw);
+						//O.o("converted fileLineRaw: "+fileLineRaw);
 						
 					}
-					alFileLines.add (new FileLine(i++, fileLineRaw));
+					alFileLines.add (new FileLine(i, fileLineRaw));
 					//O.o("fileLineRaw: "+fileLineRaw);
 				}
 	

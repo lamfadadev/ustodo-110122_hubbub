@@ -1,5 +1,7 @@
 package com.hk
 
+import com.grailsinaction.User;
+
 class HomeController {
 	def nexxwUser =	{
 		redirect(controller: 'authentication', action: 'index');	
@@ -11,7 +13,7 @@ class HomeController {
 	
 	def autocompleteSearch = {
 		def results = User.withCriteria {
-			ilike 'keyword', params.term + '%'
+			like('keyword', params.term + '%')
 		}
 		//render results as JSON
 	 }
