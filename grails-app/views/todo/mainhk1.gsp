@@ -1,8 +1,10 @@
 <html>
   <head>
+ <TITLE>MAINHK1</TITLE>
+ <meta name="layout" content="main"></meta>
     <title>Simple GSP page</title>
     <g:javascript library="jquery" />
-    <jqui:resources theme="darkness" />
+    <jqui:resources theme="darkness" /><%--
     <script type="text/javascript">
         $(document).ready(function()
         {
@@ -10,11 +12,11 @@
         })
     </script>
 
-  </head>
+  --%></head>
   <body>
-    <div>
+    <div><%--
       <p> Between <input type="text" id="datepicker"> </p>        
-    </div>
+    --%></div>
 
   </body>
 </html>

@@ -2,7 +2,7 @@ package com.hk
 
 import com.hk.util.O;
 import com.hk.util.FileLine;
-import com.hk.util.O;
+import com.hk.util.UrlConverterHttp;;
 import com.grailsinaction.User;
 
 import org.apache.tomcat.util.digester.ObjectParamRule;
@@ -48,7 +48,7 @@ class TodoController {
 	
 			def alFileLines = new ArrayList<FileLine>();
 			if (srchstr == null || (srchstr).trim().equals("")) {
-				srchstr = "recurring"
+				srchstr = "grails"
 			}
 	
 			srchstr = srchstr.trim()
@@ -96,6 +96,7 @@ class TodoController {
 	
 			String srchstrPostWriteStripInstance = srchstr;
 	
+				O.o("user [" + user1 +  "] search at " + new java.util.Date() + " [" + srchstrPostWriteStripInstance+ "]") ;
 			//now do multi-search output
 			File f = new File(fqFileName)
 			int i = 0
@@ -103,18 +104,19 @@ class TodoController {
 			f.eachLine
 			{
 				String fileLineRaw = ((String) it).trim();
-				// FOR EACH SRCH WORD
+				String fileLineRawLower = fileLineRaw.toLowerCase();
+				// FOR EACH SRCH WORD MATCH MATCH MATCH MATCH MATCH
 				boolean hitRemove = false;
 				(srchstrPostWriteStripInstance.split(" ")).eachWithIndex
 				{ srchWrd, ii ->
 					//O.o("working on word " + ii + " [" + srchWrd + "]");
-					srchWrd = srchWrd.trim();
+					srchWrd = srchWrd.trim().toLowerCase();
 					if (!hitRemove) 
 					{
 						if (srchWrd.startsWith("-")) // subtractive search
 	                    {
 							//O.o ((new Date()).toString() + "in sub testing neg on [" + srchWrd[1..-1] + "]");
-							if (fileLineRaw.contains(srchWrd[1..-1]))
+							if (fileLineRawLower.contains(srchWrd[1..-1]))
 							{
 								hitRemove = true;
 								//O.o ((new Date()).toString() + "hit remove yes false");
@@ -122,7 +124,7 @@ class TodoController {
 						}
 						else // positive search
 						{
-							if (!fileLineRaw.contains(srchWrd))
+							if (!fileLineRawLower.contains(srchWrd))
 							{
 								hitRemove = true;
 							} else
@@ -134,7 +136,18 @@ class TodoController {
 				}
 				// IF ALL WORDS MATCHED THIS LINE, KEEP THE LINE
 				if (hitRemove == false)
+				{
+					String fileLineRawURL = null;
+					 fileLineRawURL = UrlConverterHttp.detectAndConvertURLs (fileLineRaw);
+					if (fileLineRawURL != null)
+					{
+						fileLineRaw = fileLineRawURL;
+						O.o("converted fileLineRaw: "+fileLineRaw);
+						
+					}
 					alFileLines.add (new FileLine(i++, fileLineRaw));
+					//O.o("fileLineRaw: "+fileLineRaw);
+				}
 	
 			}
 			//				if (s.contains(srchstr))
