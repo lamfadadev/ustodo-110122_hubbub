@@ -29,7 +29,7 @@ class TodoController {
 	}
 	
 	def index = {
-		
+		O.o(new java.util.Date().toString() + ": in todo controller index");
 		if (!authenticationService.isLoggedIn(request))
 		{
 			//response.sendError(403)
@@ -77,7 +77,7 @@ class TodoController {
 				srchstr = srchstr.trim();
 	
 				String lineout = com.hk.util.UtilDate.getDateForFile() + " " + srchstr;
-				O.o("saved lineout:" + lineout.toString());
+				//O.o("saved lineout:" + lineout.toString());
 				//O.o("try existing file:" + fqFileName );
 				new File(fqFileName).withWriterAppend { out ->
 					out.writeLine(lineout);
