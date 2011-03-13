@@ -8,13 +8,13 @@
  
  <%-- from http://grails.1312388.n4.nabble.com/jQuery-Autocomplete-td2526439.html--%>
  
-<%--<script type="text/javascript"> 
-     $(document).ready(function() { 
-       $('#kw').autocomplete({ 
-         source: '${g:createLink(action: 'autocompleteSearch')}' 
-       }); 
-     }); 
-</script>
+	<%--<script type="text/javascript"> 
+	     $(document).ready(function() { 
+	       $('#kw').autocomplete({ 
+	         source: '${g:createLink(action: 'autocompleteSearch')}' 
+	       }); 
+	     }); 
+	</script>
 --%></head>	
  <body bgcolor="FFFFFF">
 
