@@ -103,10 +103,10 @@ class TodoController {
 			String srchstrPostWriteStripInstance = srchstr;
 	
 			O.o("!!!!!!!!!! user [" + user1 +  "] search at " + new java.util.Date() + " [" + srchstrPostWriteStripInstance+ "]") ;
-			(srchstrPostWriteStripInstance.split(" ")).eachWithIndex
-			{ srchWrd, ii ->
+			//(srchstrPostWriteStripInstance.split(" ")).eachWithIndex
+			//{ srchWrd, ii ->
 				//  O.o("################## search word set" + ii + " [" + srchWrd + "]");
-			}
+			//}
 			//now do multi-search output
 			File f = new File(fqFileName)
 			int i = 0
@@ -123,10 +123,10 @@ class TodoController {
 					srchWrd = srchWrd.trim().toLowerCase();
 					if (!hitRemove) 
 					{
-						if (srchWrd.startsWith("-") && srchWrd.length() > 1) // subtractive search  / ignoreif there is a "-" alone
+						if (srchWrd.startsWith("-")) // subtractive search  
 	                    {
 							//O.o ((new Date()).toString() + "********* in sub testing neg on [" + srchWrd + "]");
-							if (fileLineRawLower.contains(srchWrd[1..-1]))
+							if (srchWrd.length() > 1 && fileLineRawLower.contains(srchWrd[1..-1])) // / ignoreif there is a "-" alone
 							{
 								hitRemove = true;
 								//O.o ((new Date()).toString() + "hit remove yes false");
