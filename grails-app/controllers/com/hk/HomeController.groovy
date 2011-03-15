@@ -2,7 +2,6 @@ package com.hk
 
 import com.grailsinaction.User;
 import com.hk.util.O;
-
 import grails.converters.JSON;
 
 class HomeController {
@@ -22,12 +21,13 @@ class HomeController {
 	}
 	
 	def autocompleteSearch = {
-//		def results = User.withCriteria {
-//			like('keyword', params.term + '%')
-//		}
+		O.o("in home.autocompleteSearch")
 		def results = User.findAll()
 		render results as JSON
 	 }
+	//		def results = User.withCriteria {
+	//			like('keyword', params.term + '%')
+	//		}
 	
 
 }	

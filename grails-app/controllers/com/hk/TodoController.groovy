@@ -4,6 +4,7 @@ import com.hk.util.O;
 import com.hk.util.FileLine;
 import com.hk.util.UrlConverterHttp;;
 import com.grailsinaction.User;
+import grails.converters.JSON;
 
 import org.apache.tomcat.util.digester.ObjectParamRule;
 import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
@@ -28,8 +29,13 @@ class TodoController {
 	
 	}
 	
+	def index2 = {
+		def results = User.findAll() 
+		render results as JSON
+	}
+	
 	def index = {
-		O.o(new java.util.Date().toString() + ": in todo controller index");
+		//O.o(new java.util.Date().toString() + ": in todo controller index");
 		if (!authenticationService.isLoggedIn(request))
 		{
 			//response.sendError(403)
@@ -58,7 +64,7 @@ class TodoController {
 	
 			if ( !(new File(fqFileName).exists()))
 			{
-				O.o("create new file:" + fqFileName);		
+				O.o("create new file/for new user:" + fqFileName);		
 				File f = new File(fqFileName);
 				f.write("");
 			}
@@ -96,7 +102,11 @@ class TodoController {
 	
 			String srchstrPostWriteStripInstance = srchstr;
 	
-				O.o("user [" + user1 +  "] search at " + new java.util.Date() + " [" + srchstrPostWriteStripInstance+ "]") ;
+			O.o("!!!!!!!!!! user [" + user1 +  "] search at " + new java.util.Date() + " [" + srchstrPostWriteStripInstance+ "]") ;
+			(srchstrPostWriteStripInstance.split(" ")).eachWithIndex
+			{ srchWrd, ii ->
+				//  O.o("################## search word set" + ii + " [" + srchWrd + "]");
+			}
 			//now do multi-search output
 			File f = new File(fqFileName)
 			int i = 0
@@ -110,13 +120,12 @@ class TodoController {
 				boolean hitRemove = false;
 				(srchstrPostWriteStripInstance.split(" ")).eachWithIndex
 				{ srchWrd, ii ->
-					//O.o("working on word " + ii + " [" + srchWrd + "]");
 					srchWrd = srchWrd.trim().toLowerCase();
 					if (!hitRemove) 
 					{
-						if (srchWrd.startsWith("-")) // subtractive search
+						if (srchWrd.startsWith("-") && srchWrd.length() > 1) // subtractive search  / ignoreif there is a "-" alone
 	                    {
-							//O.o ((new Date()).toString() + "in sub testing neg on [" + srchWrd[1..-1] + "]");
+							//O.o ((new Date()).toString() + "********* in sub testing neg on [" + srchWrd + "]");
 							if (fileLineRawLower.contains(srchWrd[1..-1]))
 							{
 								hitRemove = true;

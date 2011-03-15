@@ -15,7 +15,23 @@
 	       }); 
 	     }); 
 	</script>
---%></head>	
+		--%>
+		
+		<script type="text/javascript"> 
+	     $(document).ready($(function() {
+	    	    $("#kw").autocomplete('${g.createLink(controller: "home", action: "autocompleteSearch")}', {
+	    	        max: 100,
+	    	        width: 300
+	    	    });
+	    	});); 
+	   </script>
+	
+	
+	
+	
+	
+	
+</head>	
  <body bgcolor="FFFFFF">
 
 <g:textField name="kw"/>
