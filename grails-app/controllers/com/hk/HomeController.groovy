@@ -10,15 +10,12 @@ class HomeController {
 	}
 	def index = 
 	{
-		O.o("in indexhome")
-		redirect(controller: 'home', action: 'indexhome');
-		
+		O.o("in home index")
+		redirect(controller: 'home', action: 'indexhome3');
 	}
-	def indexhome = 
-	{
-		O.o("in home indexhome")
-		
-	}
+	def indexhome = {}
+	def indexhome2 ={}
+	def indexhome3 ={}
 	
 	def autocompleteSearch = {
 		O.o("in home.autocompleteSearch")

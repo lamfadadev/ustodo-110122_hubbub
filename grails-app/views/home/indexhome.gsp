@@ -15,17 +15,48 @@
 	       }); 
 	     }); 
 	</script>
-		--%>
+		--%><%--
 		
 		<script type="text/javascript"> 
 	     $(document).ready($(function() {
-	    	    $("#kw").autocomplete('${g.createLink(controller: "home", action: "autocompleteSearch")}', {
-	    	        max: 100,
-	    	        width: 300
+	    	    $("#kw").autocomplete('${g.createLink(action: 'autocompleteSearch')}'
 	    	    });
 	    	});); 
 	   </script>
-	
+	   
+	   
+	   --%>
+	   <script>
+		$(function() {
+			var availableTags = [
+				"ActionScript",
+				"AppleScript",
+				"Asp",
+				"BASIC",
+				"C",
+				"C++",
+				"Clojure",
+				"COBOL",
+				"ColdFusion",
+				"Erlang",
+				"Fortran",
+				"Groovy",
+				"Haskell",
+				"Java",
+				"JavaScript",
+				"Lisp",
+				"Perl",
+				"PHP",
+				"Python",
+				"Ruby",
+				"Scala",
+				"Scheme"
+			];
+			$( "#tags" ).autocomplete({
+				source: availableTags
+			});
+		});
+		</script>
 	
 	
 	
@@ -33,6 +64,11 @@
 	
 </head>	
  <body bgcolor="FFFFFF">
+
+<div class="ui-widget">
+	<label for="tags">Tags: </label>
+	<input id="tags">
+</div>
 
 <g:textField name="kw"/>
 

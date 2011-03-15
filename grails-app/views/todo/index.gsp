@@ -67,15 +67,13 @@
 					</g:if></td>
 				</SELECT></td>
 
-				<td><font color=${ (i % 2) ==0?"black" : "grey" }>&nbsp;
 
 				<g:if test="${maxAge.contains('+')}">
 					<font size=-1 color="green"> ${fl.fileLineNumThisLine1Based} </font> : 
 				</g:if></td>
 				 
-				
-				<td>${fl.lineMinusDateStr} </font></td>
-
+				<td><font color=${ (i % 2) ==0 ? "grey" : "black" }>&nbsp;
+				${fl.lineMinusDateStr} </font></td>
 				<%--<g:createLink url="[controller:'milesAccount', action:'generateTooltip', params:[id:${it.id}, extra:'extra']]" />--%>
 
 			</tr>
