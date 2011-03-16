@@ -59,8 +59,8 @@ class TodoController {
 	
 			srchstr = srchstr.trim()
 			String s3="blue"
-			if (seq %2 == 0)
-				s3="purple"
+			//if (seq %2 == 0)
+				//s3="purple"
 	
 			if ( !(new File(fqFileName).exists()))
 			{
