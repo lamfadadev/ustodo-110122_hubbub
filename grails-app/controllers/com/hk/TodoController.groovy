@@ -44,7 +44,9 @@ class TodoController {
 			//			O.o ("index user:" + getUser());
 			String user1 = getUser();
 			String fqFileName = '/Users/hkon/sw/ustodo/favs' + user1 + '.csv';
-						
+			String fqFileName_srchHist = '/Users/hkon/sw/ustodo/favs' + user1 + '_srchHist.csv';
+			String fqFileName_cachedCagtegs = '/Users/hkon/sw/ustodo/favs' + user1 + '_cachedCagtegs.csv';
+			
 			seq++;
 			String mode = ""
 	
@@ -68,6 +70,12 @@ class TodoController {
 				File f = new File(fqFileName);
 				f.write("");
 			}
+			if ( !(new File(fqFileName_srchHist).exists()))
+			{
+				O.o("create new file/for new user:" + fqFileName_srchHist);		
+				File f2 = new File(fqFileName_srchHist);
+				f2.write("");
+			}
 //			else
 //				O.o("SEEMS LIKE FILE EXISTS:" + fqFileName);
 				
@@ -88,18 +96,42 @@ class TodoController {
 				new File(fqFileName).withWriterAppend { out ->
 					out.writeLine(lineout);
 				}
-				mode = "Saved: [" + lineout+ "] &nbsp;"
+				mode = "Saved: [" + lineout+ "] &nbsp; to ["+fqFileName+"]"
 				
 				flash['message'] = " [" + lineout + "]"
 				//O.o("write pos last / [" + srchstr.lastIndexOf('/') + "] on str [" + srchstr + "]");
 				srchstr = srchstr [0..(srchstr.lastIndexOf('/')-1)] + "/"
 				//O.o "ss:" + srchstr;
 				//if (seq %2 == 0)
-					s3="red"
+					s3="green"
 				//else
 					//s3="orange"
 			}
 	
+			// SRCH SRCH SRCH SRCH SRCH SRCH 
+
+			
+			//			// maintain search history here - default search should be last search 
+			//			File f = new File(fqFileName)
+			//			int i = 0
+			//			// FOR EACH FILE LINE in srch history
+			//			String lastline = 
+			//			f.eachLine
+			//			{
+			//				i++; // 1based line num counter
+			//				String fileLineRaw = ((String) it).trim();
+			//				String fileLineRawLower = fileLineRaw.toLowerCase();
+			//				// FOR EACH SRCH WORD MATCH MATCH MATCH MATCH MATCH
+			//				boolean hitRemove = false;
+			//				(srchstrPostWriteStripInstance.split(" ")).eachWithIndex
+			//				{ srchWrd, ii ->
+			//					srchWrd = srchWrd.trim().toLowerCase();
+			//					if (!hitRemove)
+			//					...
+			//				}
+			//			}
+			//			// END maintain search history here
+			
 			String srchstrPostWriteStripInstance = srchstr;
 	
 			O.o("!!!!!!!!!! user [" + user1 +  "] search at " + new java.util.Date() + " [" + srchstrPostWriteStripInstance+ "]") ;

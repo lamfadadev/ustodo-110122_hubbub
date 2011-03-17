@@ -15,60 +15,38 @@
 	       }); 
 	     }); 
 	</script>
-		--%><%--
-		
+		--%>
+
+	<script type="text/javascript">
+	var firstname;
+	firstname="Hege";
+	document.write(firstname);
+	document.write("<br />");
+	firstname="Tove";
+	document.write("kw:" + $("#kw"))
+	document.write("document:" + $(document))
+	document.write(firstname);
+	</script>
+
+<a href="${createLink(controller: "home", action:'autocompleteSearch')}">my link</a>
+
+
 		<script type="text/javascript"> 
 	     $(document).ready($(function() {
-	    	    $("#kw").autocomplete('${g.createLink(action: 'autocompleteSearch')}'
-	    	    });
-	    	});); 
+	    	    $("#kw").autocomplete('${g.createLink(controller: "home", action: "autocompleteSearch")}', {
+	    	        max: 100,
+	    	        width: 300
+	    	    })
+	    	}))
 	   </script>
-	   
-	   
-	   --%>
-	   <script>
-		$(function() {
-			var availableTags = [
-				"ActionScript",
-				"AppleScript",
-				"Asp",
-				"BASIC",
-				"C",
-				"C++",
-				"Clojure",
-				"COBOL",
-				"ColdFusion",
-				"Erlang",
-				"Fortran",
-				"Groovy",
-				"Haskell",
-				"Java",
-				"JavaScript",
-				"Lisp",
-				"Perl",
-				"PHP",
-				"Python",
-				"Ruby",
-				"Scala",
-				"Scheme"
-			];
-			$( "#tags" ).autocomplete({
-				source: availableTags
-			});
-		});
-		</script>
-	
-	
-	
-	
-	
+
+
+
+
+
+
 </head>	
  <body bgcolor="FFFFFF">
-
-<div class="ui-widget">
-	<label for="tags">Tags: </label>
-	<input id="tags">
-</div>
 
 <g:textField name="kw"/>
 
