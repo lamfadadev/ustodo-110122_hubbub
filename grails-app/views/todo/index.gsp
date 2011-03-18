@@ -2,7 +2,7 @@
 <%@page import="org.junit.internal.matchers.CombinableMatcher"%>
 <html>
 <head>
- <TITLE>UsToDo [${srchstr}]</TITLE>
+ <TITLE><${srchstr}></TITLE>
  <meta name="layout" content="main"></meta>
  
  <%-- from http://grails.1312388.n4.nabble.com/jQuery-Autocomplete-td2526439.html--%><%--
