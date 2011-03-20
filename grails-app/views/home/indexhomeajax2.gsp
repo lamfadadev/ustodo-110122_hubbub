@@ -3,14 +3,13 @@
 <html>
 <head>
 
-<%--<g:javascript library="jquery" plugin="jquery"/>
-	--%><TITLE>UsToDo [${srchstr}]</TITLE>
+<g:javascript library="jquery" plugin="jquery"/>
+	<TITLE>UsToDo [${srchstr}]</TITLE>
 	<meta name="layout" content="main"></meta>
 </head>
 <body>
 
-<%--<g:javascript library="jquery" plugin="jquery"/>
-	--%><g:textField name="kw"/>
+<g:javascript library="jquery" plugin="jquery"/>
 <%--<select onchange="${remoteFunction(action:'autocompleteSearch',update:[success:'kw', failure:'ohno'], params:'\'bookName=\' + this.value' )}">
 --%>
 
@@ -25,9 +24,10 @@
 --%>
 
 
+<g:textField name="kw"/>
 <select onchange=
    "${remoteFunction(action:'autocompleteSearch',
-   update:[success:'kw', failure:'ohno'], 
+   update:[success:'kw', failure:'kw'], 
    params:'\'bookName=\' + this.value' )}">
     <option>first</option>
     <option>second</option>

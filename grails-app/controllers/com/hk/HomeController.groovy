@@ -29,7 +29,10 @@ class HomeController {
 	def indexhomeajax1 = {O.o("in indexhomeajax1")}
 	def indexhomeajax2 = {O.o("in indexhomeajax2")}
 	def indexhomeajax3 = {O.o("in indexhomeajax3")}
+	def indexhomeajax3a = {O.o("in indexhomeajax3a")}
 	def indexhomeajax4 = {O.o("in indexhomeajax4")}
+	def indexhomeajax5 = {O.o("in indexhomeajax5")}
+	def indexhomeajax6 = {O.o("in indexhomeajax6")}
 	def indexhome2 ={}
 	def indexhomeajaxnojq1 ={}
 	def indexhomeajaxnojq2 ={}
@@ -39,10 +42,11 @@ class HomeController {
 	
 	
 	def autocompleteSearch = {
-		O.o("in home.autocompleteSearch")
+		O.o("in home.autocompleteSearch [" + params['textstr'] + "]")
 		def results = com.grailsinaction.User.findAllByUserIdLike("%g%").userId
 		//def results = User.findAll()
-		render results as JSON
+		//render results as JSON
+		render "hihkhkhk"
 	 }
 	//		def results = User.withCriteria {
 	//			like('keyword', params.term + '%')
@@ -66,6 +70,29 @@ class HomeController {
 	def delete = {
 		render "Book was deleted"
   }
-
+	
+// FOR indexhomeajax4
+	
+def continentSelected = {
+       def lst
+       def continent = params['continent']
+       if ( continent == 'America') {
+           lst = ['USA', 'Argentina']
+       } else if (continent == 'Asia') {
+           lst = ['China', 'India']
+       } else if (continent == 'Europa') {
+           lst = ['Slovakia', 'Serbia']
+       } else if (continent == 'Africa') {
+           lst = ['Egypt', 'Tunis']
+       } else if (continent == 'Australia') {
+           render ""
+           return
+       } else {
+           render ""
+           return
+       }
+	   Object o = g.select (from:lst);
+	   render "hi henry";
+}
 
 }	

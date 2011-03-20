@@ -100,7 +100,7 @@ class TodoController {
 				
 				flash['message'] = " [" + lineout + "]"
 				//O.o("write pos last / [" + srchstr.lastIndexOf('/') + "] on str [" + srchstr + "]");
-				srchstr = srchstr [0..(srchstr.lastIndexOf('/')-1)] + "/"
+				srchstr = srchstr [0..(srchstr.lastIndexOf(' / ')-1)] + " / "
 				//O.o "ss:" + srchstr;
 				//if (seq %2 == 0)
 					s3="green"
