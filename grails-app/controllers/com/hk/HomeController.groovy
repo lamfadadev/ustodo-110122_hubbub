@@ -17,10 +17,19 @@ class HomeController {
 		//redirect(controller: 'home', action: 'indexhome4');
 		redirect(controller: 'home', action: 'indexhome5');
 	}
-	def indexhomeajax1 = {}
-	def indexhomeajax2 = {}
-	def indexhomeajax3 = {}
-	def indexhomeajax4 = {}
+
+	/* 
+	 * autocompleteSearch reference
+	 * I got this working pretty easily in my app. The biggest "hurdle" I had was jQuery's "$" function 
+	 * conflicting with the Prototype $ function that is included with Grails. In jQuery, the $() 
+	 * function is just an alias for jQuery(). So if you use jQuery() instead of $() for everything 
+	 * related to the jQuery autocomplete, you should be fine. 
+	 */
+	
+	def indexhomeajax1 = {O.o("in indexhomeajax1")}
+	def indexhomeajax2 = {O.o("in indexhomeajax2")}
+	def indexhomeajax3 = {O.o("in indexhomeajax3")}
+	def indexhomeajax4 = {O.o("in indexhomeajax4")}
 	def indexhome2 ={}
 	def indexhomeajaxnojq1 ={}
 	def indexhomeajaxnojq2 ={}
