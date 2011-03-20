@@ -11,18 +11,28 @@ class HomeController {
 	def index = 
 	{
 		O.o("in home index")
-		redirect(controller: 'home', action: 'indexhome1ajax');
+		//redirect(controller: 'home', action: 'indexhomeajax1');
 		//redirect(controller: 'home', action: 'indexhome2');
 		//redirect(controller: 'home', action: 'indexhome3');
 		//redirect(controller: 'home', action: 'indexhome4');
+		redirect(controller: 'home', action: 'indexhome5');
 	}
-	def indexhome = {}
+	def indexhomeajax1 = {}
+	def indexhomeajax2 = {}
+	def indexhomeajax3 = {}
+	def indexhomeajax4 = {}
 	def indexhome2 ={}
-	def indexhome3 ={}
+	def indexhomeajaxnojq1 ={}
+	def indexhomeajaxnojq2 ={}
+	def indexhomeajaxnojq3 ={}
+	def indexhomeajaxnojq4 ={}
+	def indexhomeajaxnojq5 ={}
+	
 	
 	def autocompleteSearch = {
 		O.o("in home.autocompleteSearch")
-		def results = User.findAll()
+		def results = com.grailsinaction.User.findAllByUserIdLike("%g%").userId
+		//def results = User.findAll()
 		render results as JSON
 	 }
 	//		def results = User.withCriteria {
@@ -43,6 +53,10 @@ class HomeController {
 	def ajaxFindUserByTopic = {
 		render User.findAllByUserIdLike("%g%").userId
 	}
+	
+	def delete = {
+		render "Book was deleted"
+  }
 
 
 }	
