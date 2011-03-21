@@ -4,7 +4,7 @@
 <head>
 
 <g:javascript library="jquery" plugin="jquery"/>
-	<TITLE>indexhomeajax3a</TITLE>
+	<TITLE>indexhomeajax3a jquery</TITLE>
 	<meta name="layout" content="main"></meta>
 </head>
 <body>
@@ -23,14 +23,13 @@
 	 */
 --%>
 
-<input type="text" size="25" value="Enter your name here!" onkeydown=
+<input type="text" size="25" value="11111111111111111" onkeydown=
    "${remoteFunction(action:'autocompleteSearch',
-   update:[success:'ertert', failure:'ertert'], 
+   update:[success:'ertert1', failure:'ertert1'], 
    params:'\'textstr=\' + this.value' )}"> 
 
 
-<div id='ertert'>
-<input type='text' size='25' value='TARGET' name='tgtt'>
+<div id='ertert1'>
 </div>
 
 

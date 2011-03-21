@@ -17,4 +17,10 @@ public class O {
 		System.out.println ("object class hk is: " + o.getClass().getName() );
 		System.out.println ("object class hk2 is: " + o.getClass().getName() );
 	}
+	
+	public static void or(String s, Throwable t)
+	{
+		O.o(s +  " [" + t.getMessage() + "]");
+		t.printStackTrace();
+	}
 }

@@ -42,11 +42,12 @@ class HomeController {
 	
 	
 	def autocompleteSearch = {
+		
 		O.o("in home.autocompleteSearch [" + params['textstr'] + "]")
 		def results = com.grailsinaction.User.findAllByUserIdLike("%g%").userId
 		//def results = User.findAll()
 		//render results as JSON
-		render "hihkhkhk"
+		//render new java.util.Date().toString();
 	 }
 	//		def results = User.withCriteria {
 	//			like('keyword', params.term + '%')

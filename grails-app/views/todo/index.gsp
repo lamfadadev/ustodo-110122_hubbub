@@ -8,13 +8,24 @@
 </head>
  <body bgcolor="FFFFFF">
 
-<%--  ===== HEADER AND SEARCH FORM ====== --%>
+<%--  ===== HEADER AND SEARCH FORM / TEXT BOX ====== --%>
 
 <font color=black face="Arial"> 
 <div class="form"><%--<formset>--%> <g:form action="index">
 	<label for="userId"></label>
 	<g:textField size="200" rows="3" cols="300" name="srchstr"
 		value="${srchstr}" />
+		
+<br>		
+<input type="text" size="25" value="autocomplete test" onkeyup=
+   "${remoteFunction(action:'autocompleteSearch',
+   update:[success:'autocomplete', failure:'autocomplete'], 
+   params:'\'autocomp=\' + this.value' )}"> 	
+   
+   <div id='autocomplete'>
+   </div>
+   	
+		
 	<br>
 	<g:submitButton name="search" value="Do" />
 	<g:checkBox name="cbword" value="${cbword}" /> word
