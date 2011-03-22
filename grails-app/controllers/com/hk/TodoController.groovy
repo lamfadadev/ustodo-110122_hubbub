@@ -152,7 +152,8 @@ class TodoController {
 
 			String srchstrPostWriteStripInstance = srchstr;
 
-			O.o("!!!!!!!!!! user [" + user1 +  "] search at " + new java.util.Date() + " [" + srchstrPostWriteStripInstance+ "]") ;
+			O.o("time:" + new java.util.Date() ) ;
+			O.o("user [" + user1 +  "] search [" + srchstrPostWriteStripInstance+ "]") ;
 			//(srchstrPostWriteStripInstance.split(" ")).eachWithIndex
 			//{ srchWrd, ii ->
 			//  O.o("################## search word set" + ii + " [" + srchWrd + "]");
@@ -220,7 +221,8 @@ class TodoController {
 
 			[srchstr: srchstr, seq:seq, alFileLines: alFileLines , cbword: params.cbword
 						, cborder: params.cborder, hktest: "hkteststr", maxAge: params.maxAge, alFileLines: alFileLines,
-						fqFileName: ("<font color=\"GREEN\">"+mode), seq:seq,  user1:user1]
+						fqFileName: ("<font color=\"GREEN\">"+mode), seq:seq,  user1:user1
+						]
 		}
 	}
 
@@ -230,6 +232,7 @@ class TodoController {
 	def autocompleteSearch = {
 		String srchStr = params['textstr'];
 		String autocomp_userInput = params['autocomp'];
+		O.o ("autocomplete user [" + getUser() + "] autocomp [" + autocomp_userInput + "]");
 		if (autocomp_userInput == null)
 		{
 			render "empty autocomp";

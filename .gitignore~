@@ -1,0 +1,6 @@
+target/classes/com/hk/*.class
+target/classes/com/grailsinaction/*.class
+*.log
+web-app/WEB-INF/classes/com/hk/*.class
+web-app/WEB-INF/classes/com/grailsinaction/*.class
+
