@@ -7,6 +7,7 @@ class User {
     String userId
 	String password
 	Date dateCreated;
+	
 	Profile profile
 
 	static hasMany = [ posts : Post, tags : Tag, following : User ]

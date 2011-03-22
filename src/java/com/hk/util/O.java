@@ -7,15 +7,14 @@ public class O {
 	{
 		long now = System.currentTimeMillis();
 		if ((now - lastms) > 3000)
-			System.out.println ("\r\n\r\n"+ (new java.util.Date().toString())+ " **********************************\r\n");
+			System.out.println ("\r\n\r\n"+ (new java.util.Date().toString())+ " **********************************");
 		lastms = now;
 		System.out.println (s);
 	}
 
-	public static void oc(Object o)
+	public static void oc(String oname, Object o)
 	{
-		System.out.println ("object class hk is: " + o.getClass().getName() );
-		System.out.println ("object class hk2 is: " + o.getClass().getName() );
+		System.out.println ("object getClass getname  [" + oname + "] [" + o.getClass().getName() + "]");
 	}
 	
 	public static void or(String s, Throwable t)

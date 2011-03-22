@@ -2,7 +2,7 @@
 <%@page import="org.junit.internal.matchers.CombinableMatcher"%>
 <html>
 <head>
- <TITLE>/${srchstr}</TITLE>
+ <TITLE>UTD/${srchstr}</TITLE>
  <meta name="layout" content="main"></meta>
  
 </head>

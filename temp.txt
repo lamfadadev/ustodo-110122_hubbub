@@ -1,0 +1,753 @@
+-rw-r--r--@ 1 hkon  staff   230 Mar 20 03:56 application.properties
+-rw-r--r--  1 hkon  staff  1542 Feb 11 00:33 console1.groovy
+-rw-r--r--  1 hkon  staff   450 Mar 21 19:51 devDB.log
+-rw-r--r--  1 hkon  staff   420 Mar 21 19:51 devDB.properties
+-rw-r--r--  1 hkon  staff  4688 Mar 21 19:51 devDB.script
+-rw-r--r--  1 hkon  staff    12 Feb 21 21:26 foo.ini
+-rw-r--r--  1 hkon  staff   529 Jan 27 20:28 shell.groovy
+-rw-r--r--  1 hkon  staff   760 Feb  7 04:41 testDBhk.log
+-rw-r--r--  1 hkon  staff   420 Feb  7 04:41 testDBhk.properties
+-rw-r--r--  1 hkon  staff  1791 Feb  7 04:41 testDBhk.script
+
+grails-app:
+total 0
+drwxr-xr-x   9 hkon  staff  306 Dec 15 08:18 conf
+drwxr-xr-x   5 hkon  staff  170 Mar  6 16:12 controllers
+drwxr-xr-x   3 hkon  staff  102 Jan 22 18:27 domain
+drwxr-xr-x  15 hkon  staff  510 Jan 22 18:22 i18n
+drwxr-xr-x   2 hkon  staff   68 Jan 22 18:22 services
+drwxr-xr-x   2 hkon  staff   68 Jan 22 18:22 taglib
+drwxr-xr-x   2 hkon  staff   68 Jan 22 18:22 utils
+drwxr-xr-x  14 hkon  staff  476 Mar  6 16:08 views
+
+grails-app/conf:
+total 40
+-rw-r--r--  1 hkon  staff    88 Dec 13 11:06 BootStrap.groovy
+-rw-r--r--  1 hkon  staff  1185 Dec 15 08:18 BuildConfig.groovy
+-rw-r--r--  1 hkon  staff  3178 Mar 19 14:27 Config.groovy
+-rw-r--r--  1 hkon  staff   802 Feb  4 03:52 DataSource.groovy
+-rw-r--r--  1 hkon  staff   180 Dec 13 11:06 UrlMappings.groovy
+drwxr-xr-x  2 hkon  staff    68 Jan 22 18:22 hibernate
+drwxr-xr-x  3 hkon  staff   102 Jan 22 18:22 spring
+
+grails-app/conf/hibernate:
+
+grails-app/conf/spring:
+total 8
+-rw-r--r--  1 hkon  staff  47 Dec 13 11:06 resources.groovy
+
+grails-app/controllers:
+total 0
+drwxr-xr-x  2 hkon  staff   68 Mar  6 16:12 110122_hubbub
+drwxr-xr-x  5 hkon  staff  170 Feb 12 16:03 com
+
+grails-app/controllers/110122_hubbub:
+
+grails-app/controllers/com:
+total 0
+drwxr-xr-x  6 hkon  staff  204 Feb 11 00:42 grailsinaction
+drwxr-xr-x  5 hkon  staff  170 Mar  6 16:15 hk
+
+grails-app/controllers/com/grailsinaction:
+total 40
+-rw-r--r--@ 1 hkon  staff    75 Jan 28 03:29 PostController.groovy
+-rw-r--r--  1 hkon  staff    78 Jan 28 03:29 ProfileController.groovy
+-rw-r--r--  1 hkon  staff    74 Jan 28 03:29 TagController.groovy
+-rw-r--r--  1 hkon  staff  6328 Feb 11 23:43 UserController.groovy
+
+grails-app/controllers/com/hk:
+total 40
+-rw-r--r--  1 hkon  staff   2817 Mar 20 21:40 HomeController.groovy
+-rw-r--r--  1 hkon  staff   3758 Feb 15 01:37 SleController.groovy
+-rw-r--r--  1 hkon  staff  11319 Mar 21 19:59 TodoController.groovy
+
+grails-app/domain:
+total 0
+drwxr-xr-x  4 hkon  staff  136 Feb 15 01:35 com
+
+grails-app/domain/com:
+total 0
+drwxr-xr-x  6 hkon  staff  204 Jan 27 18:44 grailsinaction
+drwxr-xr-x  4 hkon  staff  136 Mar 21 19:49 hk
+
+grails-app/domain/com/grailsinaction:
+total 32
+-rw-r--r--  1 hkon  staff  269 Jan 27 18:43 Post.groovy
+-rw-r--r--  1 hkon  staff  576 Feb 10 04:19 Profile.groovy
+-rw-r--r--  1 hkon  staff  183 Jan 27 18:56 Tag.groovy
+-rw-r--r--  1 hkon  staff  443 Feb 10 04:20 User.groovy
+
+grails-app/domain/com/hk:
+total 16
+-rw-r--r--  1 hkon  staff  115 Mar 21 19:50 SearchHistElem.groovy
+-rw-r--r--  1 hkon  staff   64 Feb 15 01:35 Sle.groovy
+
+grails-app/i18n:
+total 112
+-rw-r--r--  1 hkon  staff  3267 Dec 13 11:06 messages.properties
+-rw-r--r--  1 hkon  staff  3369 Dec 13 11:06 messages_da.properties
+-rw-r--r--  1 hkon  staff  3744 Dec 13 11:06 messages_de.properties
+-rw-r--r--  1 hkon  staff  2639 Dec 13 11:06 messages_es.properties
+-rw-r--r--  1 hkon  staff  2051 Dec 13 11:06 messages_fr.properties
+-rw-r--r--  1 hkon  staff  1876 Dec 13 11:06 messages_it.properties
+-rw-r--r--  1 hkon  staff  2022 Dec 13 11:06 messages_ja.properties
+-rw-r--r--  1 hkon  staff  3421 Dec 13 11:06 messages_nl.properties
+-rw-r--r--  1 hkon  staff  2663 Dec 13 11:06 messages_pt_BR.properties
+-rw-r--r--  1 hkon  staff  2760 Dec 13 11:06 messages_pt_PT.properties
+-rw-r--r--  1 hkon  staff  3849 Dec 13 11:06 messages_ru.properties
+-rw-r--r--  1 hkon  staff  5085 Dec 13 11:06 messages_th.properties
+-rw-r--r--  1 hkon  staff  2188 Dec 13 11:06 messages_zh_CN.properties
+
+grails-app/services:
+
+grails-app/taglib:
+
+grails-app/utils:
+
+grails-app/views:
+total 16
+-rw-r--r--   1 hkon  staff  1601 Dec 13 11:06 error.gsp
+drwxr-xr-x  11 hkon  staff   374 Mar 20 18:33 home
+drwxr-xr-x   2 hkon  staff    68 Feb 17 03:28 index
+-rw-r--r--   1 hkon  staff  3867 Dec 13 11:06 index.gsp
+drwxr-xr-x   3 hkon  staff   102 Jan 22 18:22 layouts
+drwxr-xr-x   2 hkon  staff    68 Jan 28 03:14 post
+drwxr-xr-x   2 hkon  staff    68 Jan 28 03:14 profile
+drwxr-xr-x   6 hkon  staff   204 Feb 15 01:37 sle
+drwxr-xr-x   2 hkon  staff    68 Jan 28 03:14 tag
+drwxr-xr-x   5 hkon  staff   170 Mar  8 04:44 todo
+drwxr-xr-x   9 hkon  staff   306 Feb  9 05:39 user
+
+grails-app/views/home:
+total 72
+-rw-r--r--  1 hkon  staff   225 Mar 15 19:24 indexhome2.gsp
+-rw-r--r--  1 hkon  staff   345 Mar 15 19:15 indexhome3.gsp
+-rw-r--r--  1 hkon  staff   377 Mar 18 04:49 indexhome4.gsp
+-rw-r--r--  1 hkon  staff  1032 Mar 20 05:12 indexhomeajax1.gsp
+-rw-r--r--  1 hkon  staff  1099 Mar 20 08:22 indexhomeajax2.gsp
+-rw-r--r--  1 hkon  staff  1210 Mar 20 18:49 indexhomeajax3.gsp
+-rw-r--r--  1 hkon  staff  1317 Mar 20 20:08 indexhomeajax3a.gsp
+-rw-r--r--  1 hkon  staff  1004 Mar 20 18:37 indexhomeajax4.gsp
+-rw-r--r--  1 hkon  staff   277 Mar 20 03:39 indexhomeajaxnojq1.gsp
+
+grails-app/views/index:
+
+grails-app/views/layouts:
+total 8
+-rw-r--r--  1 hkon  staff  620 Mar 20 06:03 main.gsp
+
+grails-app/views/post:
+
+grails-app/views/profile:
+
+grails-app/views/sle:
+total 32
+-rw-r--r--  1 hkon  staff  1649 Feb 15 01:37 create.gsp
+-rw-r--r--  1 hkon  staff  2237 Feb 15 01:37 edit.gsp
+-rw-r--r--  1 hkon  staff  1918 Feb 15 01:37 list.gsp
+-rw-r--r--  1 hkon  staff  2286 Feb 15 01:37 show.gsp
+
+grails-app/views/tag:
+
+grails-app/views/todo:
+total 24
+-rw-r--r--@ 1 hkon  staff  2529 Mar 21 07:41 index.gsp
+-rw-r--r--  1 hkon  staff  3009 Feb 14 03:42 list.gsp
+-rw-r--r--  1 hkon  staff   512 Mar  9 19:30 mainhk1.gsp
+
+grails-app/views/user:
+total 72
+-rw-r--r--  1 hkon  staff  3562 Jan 30 14:56 create.gsp
+-rw-r--r--  1 hkon  staff  5010 Jan 30 14:56 edit.gsp
+-rw-r--r--  1 hkon  staff  3009 Jan 30 14:56 list.gsp
+-rw-r--r--  1 hkon  staff   664 Feb  8 02:28 results.gsp
+-rw-r--r--  1 hkon  staff   348 Feb 14 02:39 search.gsp
+-rw-r--r--  1 hkon  staff  4651 Jan 30 14:56 show.gsp
+-rw-r--r--  1 hkon  staff   396 Feb  9 05:39 timeline.gsp
+
+lib:
+
+scripts:
+
+src:
+total 0
+drwxr-xr-x  3 hkon  staff  102 Feb 19 17:47 groovy
+drwxr-xr-x  3 hkon  staff  102 Feb  9 05:38 java
+drwxr-xr-x  6 hkon  staff  204 Feb  3 00:53 templates
+
+src/groovy:
+total 0
+drwxr-xr-x  3 hkon  staff  102 Feb 19 17:47 com
+
+src/groovy/com:
+total 0
+drwxr-xr-x  3 hkon  staff  102 Feb 19 17:59 hk
+
+src/groovy/com/hk:
+total 0
+drwxr-xr-x  7 hkon  staff  238 Mar 21 06:44 util
+
+src/groovy/com/hk/util:
+total 48
+-rw-------  1 hkon  staff   646 Mar 11 04:54 FileLine.groovy
+-rw-r--r--  1 hkon  staff  2070 Mar 21 07:07 UtilAutocomplete.groovy
+-rw-r--r--  1 hkon  staff  5327 Mar  7 05:55 UtilDate.groovy
+-rw-r--r--  1 hkon  staff  3755 Mar 21 08:02 UtilFile.groovy
+-rw-r--r--  1 hkon  staff  1409 Mar 21 08:01 UtilTags.groovy
+
+src/java:
+total 0
+drwxr-xr-x  3 hkon  staff  102 Feb  3 03:22 com
+
+src/java/com:
+total 0
+drwxr-xr-x  3 hkon  staff  102 Feb  3 03:22 hk
+
+src/java/com/hk:
+total 0
+drwxr-xr-x  4 hkon  staff  136 Mar 11 03:23 util
+
+src/java/com/hk/util:
+total 16
+-rw-r--r--  1 hkon  staff   644 Mar 20 20:18 O.java
+-rw-r--r--  1 hkon  staff  1587 Mar 11 05:10 UrlConverterHttp.java
+
+src/templates:
+total 0
+drwxr-xr-x  11 hkon  staff  374 Jan 30 18:25 artifacts
+drwxr-xr-x   9 hkon  staff  306 Jan 30 19:02 scaffolding
+drwxr-xr-x   3 hkon  staff  102 Jan 30 18:25 war
+
+src/templates/artifacts:
+total 72
+-rw-r--r--  1 hkon  staff    65 Jan 30 18:25 Controller.groovy
+-rw-r--r--  1 hkon  staff    78 Jan 30 18:25 DomainClass.groovy
+-rw-r--r--  1 hkon  staff   292 Jan 30 18:25 Filters.groovy
+-rw-r--r--  1 hkon  staff   160 Jan 30 18:25 Script.groovy
+-rw-r--r--  1 hkon  staff   111 Jan 30 18:25 Service.groovy
+-rw-r--r--  1 hkon  staff    45 Jan 30 18:25 TagLib.groovy
+-rw-r--r--  1 hkon  staff   252 Jan 30 18:25 Tests.groovy
+-rw-r--r--  1 hkon  staff  2081 Jan 30 18:25 WebTest.groovy
+-rw-r--r--  1 hkon  staff   426 Jan 30 18:25 hibernate.cfg.xml
+
+src/templates/scaffolding:
+total 88
+-rw-r--r--  1 hkon  staff  4511 Feb  1 22:53 Controller.groovy
+-rw-r--r--  1 hkon  staff  3494 Jan 30 18:25 create.gsp
+-rw-r--r--@ 1 hkon  staff  3983 Jan 30 19:02 edit.gsp
+-rw-r--r--@ 1 hkon  staff  3982 Jan 30 18:25 edit.gsp~
+-rw-r--r--  1 hkon  staff  3704 Jan 30 18:25 list.gsp
+-rw-r--r--  1 hkon  staff  9314 Jan 30 18:25 renderEditor.template
+-rw-r--r--  1 hkon  staff  4514 Jan 30 18:25 show.gsp
+
+src/templates/war:
+total 8
+-rw-r--r--@ 1 hkon  staff  3510 Jan 30 18:25 web.xml
+
+target:
+total 391344
+drwxr-xr-x  51 hkon  staff       1734 Mar 21 19:50 classes
+-rw-r--r--   1 hkon  staff  200367562 Mar 21 19:50 stacktrace.log
+drwxr-xr-x   4 hkon  staff        136 Mar 19 06:22 test-reports
+
+target/classes:
+total 512
+-rw-r--r--  1 hkon  staff   2901 Mar 20 21:07 AuthenticationGrailsPlugin$_closure1.class
+-rw-r--r--  1 hkon  staff   2336 Mar 20 21:07 AuthenticationGrailsPlugin$_closure2.class
+-rw-r--r--  1 hkon  staff   3116 Mar 20 21:07 AuthenticationGrailsPlugin$_closure3.class
+-rw-r--r--  1 hkon  staff   2323 Mar 20 21:07 AuthenticationGrailsPlugin$_closure4.class
+-rw-r--r--  1 hkon  staff   2323 Mar 20 21:07 AuthenticationGrailsPlugin$_closure5.class
+-rw-r--r--  1 hkon  staff   2680 Mar 20 21:07 AuthenticationGrailsPlugin$_closure6.class
+-rw-r--r--  1 hkon  staff   8478 Mar 20 21:07 AuthenticationGrailsPlugin.class
+-rw-r--r--  1 hkon  staff   2307 Mar 20 21:07 BootStrap$_closure1.class
+-rw-r--r--  1 hkon  staff   2894 Mar 20 21:07 BootStrap$_closure2.class
+-rw-r--r--  1 hkon  staff   6026 Mar 20 21:07 BootStrap.class
+-rw-r--r--  1 hkon  staff   3442 Mar 20 21:07 BuildConfig$_run_closure1.class
+-rw-r--r--  1 hkon  staff   2956 Mar 20 21:07 BuildConfig$_run_closure1_closure2.class
+-rw-r--r--  1 hkon  staff   3141 Mar 20 21:07 BuildConfig$_run_closure1_closure3.class
+-rw-r--r--  1 hkon  staff   2956 Mar 20 21:07 BuildConfig$_run_closure1_closure4.class
+-rw-r--r--  1 hkon  staff   7896 Mar 20 21:07 BuildConfig.class
+-rw-r--r--  1 hkon  staff   3015 Mar 20 21:07 Config$_run_closure1.class
+-rw-r--r--  1 hkon  staff   3161 Mar 20 21:07 Config$_run_closure2.class
+-rw-r--r--  1 hkon  staff   3202 Mar 20 21:07 Config$_run_closure2_closure4.class
+-rw-r--r--  1 hkon  staff   3200 Mar 20 21:07 Config$_run_closure2_closure5.class
+-rw-r--r--  1 hkon  staff   3366 Mar 20 21:07 Config$_run_closure2_closure6.class
+-rw-r--r--  1 hkon  staff   3725 Mar 20 21:07 Config$_run_closure3.class
+-rw-r--r--  1 hkon  staff   9791 Mar 20 21:07 Config.class
+-rw-r--r--  1 hkon  staff   3263 Mar 20 21:07 DataSource$_run_closure1.class
+-rw-r--r--  1 hkon  staff   3496 Mar 20 21:07 DataSource$_run_closure2.class
+-rw-r--r--  1 hkon  staff   3271 Mar 20 21:07 DataSource$_run_closure3.class
+-rw-r--r--  1 hkon  staff   3109 Mar 20 21:07 DataSource$_run_closure3_closure4.class
+-rw-r--r--  1 hkon  staff   3213 Mar 20 21:07 DataSource$_run_closure3_closure4_closure7.class
+-rw-r--r--  1 hkon  staff   3109 Mar 20 21:07 DataSource$_run_closure3_closure5.class
+-rw-r--r--  1 hkon  staff   3216 Mar 20 21:07 DataSource$_run_closure3_closure5_closure8.class
+-rw-r--r--  1 hkon  staff   3109 Mar 20 21:07 DataSource$_run_closure3_closure6.class
+-rw-r--r--  1 hkon  staff   3214 Mar 20 21:07 DataSource$_run_closure3_closure6_closure9.class
+-rw-r--r--  1 hkon  staff   7489 Mar 20 21:07 DataSource.class
+-rw-r--r--  1 hkon  staff   4374 Mar 20 21:07 HibernateGrailsPlugin$_closure1.class
+-rw-r--r--  1 hkon  staff   2723 Mar 20 21:07 HibernateGrailsPlugin$_closure2.class
+-rw-r--r--  1 hkon  staff   9235 Mar 20 21:07 HibernateGrailsPlugin.class
+-rw-r--r--  1 hkon  staff   3167 Mar 20 21:07 JqueryGrailsPlugin$_closure1.class
+-rw-r--r--  1 hkon  staff   5241 Mar 20 21:07 JqueryGrailsPlugin$_closure2.class
+-rw-r--r--  1 hkon  staff   3803 Mar 20 21:07 JqueryGrailsPlugin$_closure2_closure3.class
+-rw-r--r--  1 hkon  staff   3951 Mar 20 21:07 JqueryGrailsPlugin$_closure2_closure3_closure4.class
+-rw-r--r--  1 hkon  staff  10998 Mar 20 21:07 JqueryGrailsPlugin.class
+-rw-r--r--  1 hkon  staff   7259 Mar 20 21:07 TomcatGrailsPlugin.class
+-rw-r--r--  1 hkon  staff   3867 Mar 20 21:07 UrlMappings$__clinit__closure1.class
+-rw-r--r--  1 hkon  staff   3063 Mar 20 21:07 UrlMappings$__clinit__closure1_closure2.class
+-rw-r--r--  1 hkon  staff   2934 Mar 20 21:07 UrlMappings$__clinit__closure1_closure2_closure3.class
+-rw-r--r--  1 hkon  staff   5640 Mar 20 21:07 UrlMappings.class
+-rw-r--r--  1 hkon  staff    230 Mar 20 21:07 application.properties
+drwxr-xr-x  4 hkon  staff    136 Mar 20 21:07 com
+-rw-r--r--  1 hkon  staff   2910 Mar 20 21:07 resources$_run_closure1.class
+-rw-r--r--  1 hkon  staff   7220 Mar 20 21:07 resources.class
+
+target/classes/com:
+total 0
+drwxr-xr-x  37 hkon  staff  1258 Mar 20 21:07 grailsinaction
+drwxr-xr-x  64 hkon  staff  2176 Mar 21 19:49 hk
+
+target/classes/com/grailsinaction:
+total 440
+-rw-r--r--  1 hkon  staff  3134 Mar 20 21:07 Post$__clinit__closure1.class
+-rw-r--r--  1 hkon  staff  3214 Mar 20 21:07 Post$__clinit__closure2.class
+-rw-r--r--  1 hkon  staff  7687 Mar 20 21:07 Post.class
+-rw-r--r--  1 hkon  staff  5926 Mar 20 21:07 PostController.class
+-rw-r--r--  1 hkon  staff  3803 Mar 20 21:07 Profile$__clinit__closure1.class
+-rw-r--r--  1 hkon  staff  7418 Mar 20 21:07 Profile.class
+-rw-r--r--  1 hkon  staff  5944 Mar 20 21:07 ProfileController.class
+-rw-r--r--  1 hkon  staff  3125 Mar 20 21:07 Tag$__clinit__closure1.class
+-rw-r--r--  1 hkon  staff  7353 Mar 20 21:07 Tag.class
+-rw-r--r--  1 hkon  staff  5920 Mar 20 21:07 TagController.class
+-rw-r--r--  1 hkon  staff  3954 Mar 20 21:07 User$__clinit__closure1.class
+-rw-r--r--  1 hkon  staff  3169 Mar 20 21:07 User$__clinit__closure1_closure3.class
+-rw-r--r--  1 hkon  staff  3133 Mar 20 21:07 User$__clinit__closure2.class
+-rw-r--r--  1 hkon  staff  7942 Mar 20 21:07 User.class
+-rw-r--r--  1 hkon  staff  3178 Mar 20 21:07 UserController$_closure1.class
+-rw-r--r--  1 hkon  staff  4796 Mar 20 21:07 UserController$_closure10.class
+-rw-r--r--  1 hkon  staff  3487 Mar 20 21:07 UserController$_closure11.class
+-rw-r--r--  1 hkon  staff  4553 Mar 20 21:07 UserController$_closure12.class
+-rw-r--r--  1 hkon  staff  4553 Mar 20 21:07 UserController$_closure13.class
+-rw-r--r--  1 hkon  staff  6235 Mar 20 21:07 UserController$_closure14.class
+-rw-r--r--  1 hkon  staff  5500 Mar 20 21:07 UserController$_closure15.class
+-rw-r--r--  1 hkon  staff  4709 Mar 20 21:07 UserController$_closure2.class
+-rw-r--r--  1 hkon  staff  3869 Mar 20 21:07 UserController$_closure3.class
+-rw-r--r--  1 hkon  staff  3941 Mar 20 21:07 UserController$_closure3_closure16.class
+-rw-r--r--  1 hkon  staff  4522 Mar 20 21:07 UserController$_closure3_closure16_closure17.class
+-rw-r--r--  1 hkon  staff  4384 Mar 20 21:07 UserController$_closure4.class
+-rw-r--r--  1 hkon  staff  3587 Mar 20 21:07 UserController$_closure4_closure18.class
+-rw-r--r--  1 hkon  staff  3813 Mar 20 21:07 UserController$_closure5.class
+-rw-r--r--  1 hkon  staff  4720 Mar 20 21:07 UserController$_closure5_closure19.class
+-rw-r--r--  1 hkon  staff  4120 Mar 20 21:07 UserController$_closure5_closure19_closure20.class
+-rw-r--r--  1 hkon  staff  4582 Mar 20 21:07 UserController$_closure6.class
+-rw-r--r--  1 hkon  staff  2963 Mar 20 21:07 UserController$_closure7.class
+-rw-r--r--  1 hkon  staff  3884 Mar 20 21:07 UserController$_closure8.class
+-rw-r--r--  1 hkon  staff  3723 Mar 20 21:07 UserController$_closure9.class
+-rw-r--r--  1 hkon  staff  9299 Mar 20 21:07 UserController.class
+
+target/classes/com/hk:
+total 744
+-rw-r--r--   1 hkon  staff   3084 Mar 20 21:40 HomeController$_closure1.class
+-rw-r--r--   1 hkon  staff   2908 Mar 20 21:40 HomeController$_closure10.class
+-rw-r--r--   1 hkon  staff   2908 Mar 20 21:40 HomeController$_closure11.class
+-rw-r--r--   1 hkon  staff   2908 Mar 20 21:40 HomeController$_closure12.class
+-rw-r--r--   1 hkon  staff   2908 Mar 20 21:40 HomeController$_closure13.class
+-rw-r--r--   1 hkon  staff   2908 Mar 20 21:40 HomeController$_closure14.class
+-rw-r--r--   1 hkon  staff   2908 Mar 20 21:40 HomeController$_closure15.class
+-rw-r--r--   1 hkon  staff   3687 Mar 20 21:40 HomeController$_closure16.class
+-rw-r--r--   1 hkon  staff   3329 Mar 20 21:40 HomeController$_closure17.class
+-rw-r--r--   1 hkon  staff   3558 Mar 20 21:40 HomeController$_closure18.class
+-rw-r--r--   1 hkon  staff   3307 Mar 20 21:40 HomeController$_closure19.class
+-rw-r--r--   1 hkon  staff   3353 Mar 20 21:40 HomeController$_closure2.class
+-rw-r--r--   1 hkon  staff   2964 Mar 20 21:40 HomeController$_closure20.class
+-rw-r--r--   1 hkon  staff   3983 Mar 20 21:40 HomeController$_closure21.class
+-rw-r--r--   1 hkon  staff   3175 Mar 20 21:40 HomeController$_closure3.class
+-rw-r--r--   1 hkon  staff   3175 Mar 20 21:40 HomeController$_closure4.class
+-rw-r--r--   1 hkon  staff   3175 Mar 20 21:40 HomeController$_closure5.class
+-rw-r--r--   1 hkon  staff   3176 Mar 20 21:40 HomeController$_closure6.class
+-rw-r--r--   1 hkon  staff   3175 Mar 20 21:40 HomeController$_closure7.class
+-rw-r--r--   1 hkon  staff   3175 Mar 20 21:40 HomeController$_closure8.class
+-rw-r--r--   1 hkon  staff   3175 Mar 20 21:40 HomeController$_closure9.class
+-rw-r--r--   1 hkon  staff  10052 Mar 20 21:40 HomeController.class
+-rw-r--r--   1 hkon  staff   6447 Mar 21 19:50 SearchHistElem.class
+-rw-r--r--   1 hkon  staff   2960 Mar 20 21:07 Sle$__clinit__closure1.class
+-rw-r--r--   1 hkon  staff   6243 Mar 20 21:07 Sle.class
+-rw-r--r--   1 hkon  staff   3112 Mar 20 21:07 SleController$_closure1.class
+-rw-r--r--   1 hkon  staff   4436 Mar 20 21:07 SleController$_closure2.class
+-rw-r--r--   1 hkon  staff   3578 Mar 20 21:07 SleController$_closure3.class
+-rw-r--r--   1 hkon  staff   4644 Mar 20 21:07 SleController$_closure4.class
+-rw-r--r--   1 hkon  staff   4401 Mar 20 21:07 SleController$_closure5.class
+-rw-r--r--   1 hkon  staff   4401 Mar 20 21:07 SleController$_closure6.class
+-rw-r--r--   1 hkon  staff   6082 Mar 20 21:07 SleController$_closure7.class
+-rw-r--r--   1 hkon  staff   5348 Mar 20 21:07 SleController$_closure8.class
+-rw-r--r--   1 hkon  staff   7295 Mar 20 21:07 SleController.class
+-rw-r--r--   1 hkon  staff   7139 Mar 21 19:49 TodoController$_closure1.class
+-rw-r--r--   1 hkon  staff   3299 Mar 21 19:49 TodoController$_closure10.class
+-rw-r--r--   1 hkon  staff   4457 Mar 21 07:57 TodoController$_closure11.class
+-rw-r--r--   1 hkon  staff   4457 Mar 21 07:57 TodoController$_closure12.class
+-rw-r--r--   1 hkon  staff   6143 Mar 21 07:57 TodoController$_closure13.class
+-rw-r--r--   1 hkon  staff   5404 Mar 21 07:57 TodoController$_closure14.class
+-rw-r--r--   1 hkon  staff   3299 Mar 21 07:57 TodoController$_closure15.class
+-rw-r--r--   1 hkon  staff   4577 Mar 21 19:49 TodoController$_closure1_closure11.class
+-rw-r--r--   1 hkon  staff   4577 Mar 21 07:57 TodoController$_closure1_closure16.class
+-rw-r--r--   1 hkon  staff   3348 Mar 21 07:29 TodoController$_closure1_closure17.class
+-rw-r--r--   1 hkon  staff   2903 Mar 21 19:49 TodoController$_closure2.class
+-rw-r--r--   1 hkon  staff   3475 Mar 21 19:49 TodoController$_closure3.class
+-rw-r--r--   1 hkon  staff   9851 Mar 21 19:49 TodoController$_closure4.class
+-rw-r--r--   1 hkon  staff   3264 Mar 21 19:49 TodoController$_closure4_closure12.class
+-rw-r--r--   1 hkon  staff   5814 Mar 21 19:49 TodoController$_closure4_closure13.class
+-rw-r--r--   1 hkon  staff   4952 Mar 21 19:49 TodoController$_closure4_closure13_closure14.class
+-rw-r--r--   1 hkon  staff   3264 Mar 21 07:57 TodoController$_closure4_closure17.class
+-rw-r--r--   1 hkon  staff   5814 Mar 21 07:57 TodoController$_closure4_closure18.class
+-rw-r--r--   1 hkon  staff   4952 Mar 21 07:57 TodoController$_closure4_closure18_closure19.class
+-rw-r--r--   1 hkon  staff   5814 Mar 21 07:29 TodoController$_closure4_closure19.class
+-rw-r--r--   1 hkon  staff   4952 Mar 21 07:29 TodoController$_closure4_closure19_closure20.class
+-rw-r--r--   1 hkon  staff   3422 Mar 21 19:49 TodoController$_closure5.class
+-rw-r--r--   1 hkon  staff   4452 Mar 21 19:49 TodoController$_closure6.class
+-rw-r--r--   1 hkon  staff   4452 Mar 21 19:49 TodoController$_closure7.class
+-rw-r--r--   1 hkon  staff   6138 Mar 21 19:49 TodoController$_closure8.class
+-rw-r--r--   1 hkon  staff   5399 Mar 21 19:49 TodoController$_closure9.class
+-rw-r--r--   1 hkon  staff   9519 Mar 21 19:49 TodoController.class
+drwxr-xr-x  11 hkon  staff    374 Mar 21 06:44 util
+
+target/classes/com/hk/util:
+total 160
+-rw-r--r--  1 hkon  staff   7664 Mar 20 21:07 FileLine.class
+-rw-r--r--  1 hkon  staff   1563 Mar 20 21:07 O.class
+-rw-r--r--  1 hkon  staff   2374 Mar 20 21:07 UrlConverterHttp.class
+-rw-r--r--  1 hkon  staff   5819 Mar 21 07:07 UtilAutocomplete.class
+-rw-r--r--  1 hkon  staff  13199 Mar 20 21:07 UtilDate.class
+-rw-r--r--  1 hkon  staff  12765 Mar 21 08:02 UtilFile.class
+-rw-r--r--  1 hkon  staff   5925 Mar 21 08:01 UtilTags$_convertMultiTagLinesToTagArray_closure1.class
+-rw-r--r--  1 hkon  staff   6546 Mar 21 08:01 UtilTags$_convertMultiTagLinesToTagArray_closure1_closure2.class
+-rw-r--r--  1 hkon  staff   7475 Mar 21 08:01 UtilTags.class
+
+target/test-reports:
+total 88
+-rw-r--r--  1 hkon  staff  44766 Feb  7 04:00 TESTS-TestSuites.xml
+
+test:
+total 0
+drwxr-xr-x  4 hkon  staff  136 Feb  3 02:58 integration
+drwxr-xr-x  3 hkon  staff  102 Jan 22 18:27 unit
+
+test/integration:
+total 0
+drwxr-xr-x  2 hkon  staff   68 Feb  3 03:09 110122_hubbub
+drwxr-xr-x  3 hkon  staff  102 Jan 22 18:32 com
+
+test/integration/110122_hubbub:
+
+test/integration/com:
+total 0
+drwxr-xr-x  5 hkon  staff  170 Feb  3 03:10 grailsinaction
+
+test/integration/com/grailsinaction:
+total 24
+-rw-r--r--  1 hkon  staff   617 Jan 27 20:11 PostIntegrationTests.groovy
+-rw-r--r--  1 hkon  staff  2270 Feb  7 04:46 QueryIntegrationTests.groovy
+-rw-r--r--  1 hkon  staff  2557 Jan 27 22:20 UserIntegrationTests.groovy
+
+test/unit:
+total 0
+drwxr-xr-x  4 hkon  staff  136 Feb 12 16:03 com
+
+test/unit/com:
+total 0
+drwxr-xr-x  10 hkon  staff  340 Jan 28 03:14 grailsinaction
+drwxr-xr-x   7 hkon  staff  238 Mar  6 16:15 hk
+
+test/unit/com/grailsinaction:
+total 64
+-rw-r--r--  1 hkon  staff  267 Jan 28 03:14 PostControllerTests.groovy
+-rw-r--r--  1 hkon  staff  253 Jan 27 18:36 PostTests.groovy
+-rw-r--r--  1 hkon  staff  270 Jan 28 03:14 ProfileControllerTests.groovy
+-rw-r--r--  1 hkon  staff  256 Jan 27 18:29 ProfileTests.groovy
+-rw-r--r--  1 hkon  staff  266 Jan 28 03:14 TagControllerTests.groovy
+-rw-r--r--  1 hkon  staff  252 Jan 27 18:44 TagTests.groovy
+-rw-r--r--  1 hkon  staff  267 Jan 28 03:13 UserControllerTests.groovy
+-rw-r--r--  1 hkon  staff  566 Jan 26 20:29 UserTests.groovy
+
+test/unit/com/hk:
+total 40
+-rw-r--r--  1 hkon  staff  255 Mar  6 16:15 HomeControllerTests.groovy
+-rw-r--r--  1 hkon  staff  254 Feb 15 01:37 SleControllerTests.groovy
+-rw-r--r--  1 hkon  staff  240 Feb 15 01:35 SleTests.groovy
+-rw-r--r--  1 hkon  staff  255 Feb 12 16:05 TodoControllerTests.groovy
+-rw-r--r--  1 hkon  staff  255 Feb 12 16:03 TofoControllerTests.groovy
+
+web-app:
+total 0
+drwxr-xr-x   2 hkon  staff   68 Jan 22 18:22 META-INF
+drwxr-xr-x   6 hkon  staff  204 Mar 20 21:27 WEB-INF
+drwxr-xr-x   4 hkon  staff  136 Jan 29 02:27 css
+drwxr-xr-x  12 hkon  staff  408 Jan 29 16:34 images
+drwxr-xr-x   5 hkon  staff  170 Mar 17 04:04 js
+
+web-app/META-INF:
+
+web-app/WEB-INF:
+total 16
+-rw-r--r--   1 hkon  staff  1906 Dec 15 08:18 applicationContext.xml
+drwxr-xr-x  38 hkon  staff  1292 Mar 21 19:58 classes
+-rw-r--r--   1 hkon  staff   626 Dec 13 11:06 sitemesh.xml
+drwxr-xr-x   6 hkon  staff   204 Jan 22 18:47 tld
+
+web-app/WEB-INF/classes:
+total 304
+-rw-r--r--  1 hkon  staff  2307 Mar 21 19:58 BootStrap$_closure1.class
+-rw-r--r--  1 hkon  staff  2894 Mar 21 19:58 BootStrap$_closure2.class
+-rw-r--r--  1 hkon  staff  5699 Mar 21 19:58 BootStrap.class
+-rw-r--r--  1 hkon  staff  3442 Mar 21 19:58 BuildConfig$_run_closure1.class
+-rw-r--r--  1 hkon  staff  2956 Mar 21 19:58 BuildConfig$_run_closure1_closure2.class
+-rw-r--r--  1 hkon  staff  3141 Mar 21 19:58 BuildConfig$_run_closure1_closure3.class
+-rw-r--r--  1 hkon  staff  2956 Mar 21 19:58 BuildConfig$_run_closure1_closure4.class
+-rw-r--r--  1 hkon  staff  7599 Mar 21 19:58 BuildConfig.class
+-rw-r--r--  1 hkon  staff  3015 Mar 21 19:58 Config$_run_closure1.class
+-rw-r--r--  1 hkon  staff  3161 Mar 21 19:58 Config$_run_closure2.class
+-rw-r--r--  1 hkon  staff  3202 Mar 21 19:58 Config$_run_closure2_closure4.class
+-rw-r--r--  1 hkon  staff  3200 Mar 21 19:58 Config$_run_closure2_closure5.class
+-rw-r--r--  1 hkon  staff  3366 Mar 21 19:58 Config$_run_closure2_closure6.class
+-rw-r--r--  1 hkon  staff  3725 Mar 21 19:58 Config$_run_closure3.class
+-rw-r--r--  1 hkon  staff  9506 Mar 21 19:58 Config.class
+-rw-r--r--  1 hkon  staff  3263 Mar 21 19:58 DataSource$_run_closure1.class
+-rw-r--r--  1 hkon  staff  3496 Mar 21 19:58 DataSource$_run_closure2.class
+-rw-r--r--  1 hkon  staff  3271 Mar 21 19:58 DataSource$_run_closure3.class
+-rw-r--r--  1 hkon  staff  3109 Mar 21 19:58 DataSource$_run_closure3_closure4.class
+-rw-r--r--  1 hkon  staff  3213 Mar 21 19:58 DataSource$_run_closure3_closure4_closure7.class
+-rw-r--r--  1 hkon  staff  3109 Mar 21 19:58 DataSource$_run_closure3_closure5.class
+-rw-r--r--  1 hkon  staff  3216 Mar 21 19:58 DataSource$_run_closure3_closure5_closure8.class
+-rw-r--r--  1 hkon  staff  3109 Mar 21 19:58 DataSource$_run_closure3_closure6.class
+-rw-r--r--  1 hkon  staff  3214 Mar 21 19:58 DataSource$_run_closure3_closure6_closure9.class
+-rw-r--r--  1 hkon  staff  7190 Mar 21 19:58 DataSource.class
+-rw-r--r--  1 hkon  staff  3867 Mar 21 19:58 UrlMappings$__clinit__closure1.class
+-rw-r--r--  1 hkon  staff  3063 Mar 21 19:58 UrlMappings$__clinit__closure1_closure2.class
+-rw-r--r--  1 hkon  staff  2934 Mar 21 19:58 UrlMappings$__clinit__closure1_closure2_closure3.class
+-rw-r--r--  1 hkon  staff  5371 Mar 21 19:58 UrlMappings.class
+drwxr-xr-x  5 hkon  staff   170 Mar 21 19:58 com
+drwxr-xr-x  2 hkon  staff    68 Mar 21 19:58 hibernate
+drwxr-xr-x  3 hkon  staff   102 Mar 21 19:58 org
+-rw-r--r--  1 hkon  staff  2910 Mar 21 19:58 resources$_run_closure1.class
+-rw-r--r--  1 hkon  staff  6921 Mar 21 19:58 resources.class
+drwxr-xr-x  2 hkon  staff    68 Mar 21 19:58 spring
+
+web-app/WEB-INF/classes/com:
+total 0
+drwxr-xr-x  54 hkon  staff  1836 Mar 21 19:58 grailsinaction
+drwxr-xr-x  57 hkon  staff  1938 Mar 21 19:58 hk
+
+web-app/WEB-INF/classes/com/grailsinaction:
+total 760
+-rw-r--r--  1 hkon  staff   3134 Mar 21 19:58 Post$__clinit__closure1.class
+-rw-r--r--  1 hkon  staff   3214 Mar 21 19:58 Post$__clinit__closure2.class
+-rw-r--r--  1 hkon  staff   7437 Mar 21 19:58 Post.class
+-rw-r--r--  1 hkon  staff   5599 Mar 21 19:58 PostController.class
+-rw-r--r--  1 hkon  staff  10230 Mar 21 19:58 PostControllerTests.class
+-rw-r--r--  1 hkon  staff   9691 Mar 21 19:58 PostIntegrationTests.class
+-rw-r--r--  1 hkon  staff   9052 Mar 21 19:58 PostTests.class
+-rw-r--r--  1 hkon  staff   3803 Mar 21 19:58 Profile$__clinit__closure1.class
+-rw-r--r--  1 hkon  staff   7168 Mar 21 19:58 Profile.class
+-rw-r--r--  1 hkon  staff   5617 Mar 21 19:58 ProfileController.class
+-rw-r--r--  1 hkon  staff  10248 Mar 21 19:58 ProfileControllerTests.class
+-rw-r--r--  1 hkon  staff   9070 Mar 21 19:58 ProfileTests.class
+-rw-r--r--  1 hkon  staff   3159 Mar 21 19:58 QueryIntegrationTests$_testHbkcoding_closure1.class
+-rw-r--r--  1 hkon  staff   3257 Mar 21 19:58 QueryIntegrationTests$_testHbkcoding_closure2.class
+-rw-r--r--  1 hkon  staff   4011 Mar 21 19:58 QueryIntegrationTests$_testHbkcoding_closure2_closure5.class
+-rw-r--r--  1 hkon  staff   3159 Mar 21 19:58 QueryIntegrationTests$_testHbkcoding_closure3.class
+-rw-r--r--  1 hkon  staff   3139 Mar 21 19:58 QueryIntegrationTests$_xxtesthbk_closure4.class
+-rw-r--r--  1 hkon  staff  13928 Mar 21 19:58 QueryIntegrationTests.class
+-rw-r--r--  1 hkon  staff   3125 Mar 21 19:58 Tag$__clinit__closure1.class
+-rw-r--r--  1 hkon  staff   7121 Mar 21 19:58 Tag.class
+-rw-r--r--  1 hkon  staff   5593 Mar 21 19:58 TagController.class
+-rw-r--r--  1 hkon  staff  10224 Mar 21 19:58 TagControllerTests.class
+-rw-r--r--  1 hkon  staff   9046 Mar 21 19:58 TagTests.class
+-rw-r--r--  1 hkon  staff   3954 Mar 21 19:58 User$__clinit__closure1.class
+-rw-r--r--  1 hkon  staff   3169 Mar 21 19:58 User$__clinit__closure1_closure3.class
+-rw-r--r--  1 hkon  staff   3133 Mar 21 19:58 User$__clinit__closure2.class
+-rw-r--r--  1 hkon  staff   7692 Mar 21 19:58 User.class
+-rw-r--r--  1 hkon  staff   3178 Mar 21 19:58 UserController$_closure1.class
+-rw-r--r--  1 hkon  staff   4792 Mar 21 19:58 UserController$_closure10.class
+-rw-r--r--  1 hkon  staff   3487 Mar 21 19:58 UserController$_closure11.class
+-rw-r--r--  1 hkon  staff   4549 Mar 21 19:58 UserController$_closure12.class
+-rw-r--r--  1 hkon  staff   4549 Mar 21 19:58 UserController$_closure13.class
+-rw-r--r--  1 hkon  staff   6227 Mar 21 19:58 UserController$_closure14.class
+-rw-r--r--  1 hkon  staff   5488 Mar 21 19:58 UserController$_closure15.class
+-rw-r--r--  1 hkon  staff   4689 Mar 21 19:58 UserController$_closure2.class
+-rw-r--r--  1 hkon  staff   3869 Mar 21 19:58 UserController$_closure3.class
+-rw-r--r--  1 hkon  staff   3941 Mar 21 19:58 UserController$_closure3_closure16.class
+-rw-r--r--  1 hkon  staff   4522 Mar 21 19:58 UserController$_closure3_closure16_closure17.class
+-rw-r--r--  1 hkon  staff   4384 Mar 21 19:58 UserController$_closure4.class
+-rw-r--r--  1 hkon  staff   3587 Mar 21 19:58 UserController$_closure4_closure18.class
+-rw-r--r--  1 hkon  staff   3813 Mar 21 19:58 UserController$_closure5.class
+-rw-r--r--  1 hkon  staff   4708 Mar 21 19:58 UserController$_closure5_closure19.class
+-rw-r--r--  1 hkon  staff   4120 Mar 21 19:58 UserController$_closure5_closure19_closure20.class
+-rw-r--r--  1 hkon  staff   4582 Mar 21 19:58 UserController$_closure6.class
+-rw-r--r--  1 hkon  staff   2963 Mar 21 19:58 UserController$_closure7.class
+-rw-r--r--  1 hkon  staff   3884 Mar 21 19:58 UserController$_closure8.class
+-rw-r--r--  1 hkon  staff   3723 Mar 21 19:58 UserController$_closure9.class
+-rw-r--r--  1 hkon  staff   9048 Mar 21 19:58 UserController.class
+-rw-r--r--  1 hkon  staff  10230 Mar 21 19:58 UserControllerTests.class
+-rw-r--r--  1 hkon  staff   3093 Mar 21 19:58 UserIntegrationTests$_t_closure1.class
+-rw-r--r--  1 hkon  staff  12039 Mar 21 19:58 UserIntegrationTests.class
+-rw-r--r--  1 hkon  staff  10104 Mar 21 19:58 UserTests.class
+
+web-app/WEB-INF/classes/com/hk:
+total 696
+-rw-r--r--   1 hkon  staff   3084 Mar 21 19:58 HomeController$_closure1.class
+-rw-r--r--   1 hkon  staff   2908 Mar 21 19:58 HomeController$_closure10.class
+-rw-r--r--   1 hkon  staff   2908 Mar 21 19:58 HomeController$_closure11.class
+-rw-r--r--   1 hkon  staff   2908 Mar 21 19:58 HomeController$_closure12.class
+-rw-r--r--   1 hkon  staff   2908 Mar 21 19:58 HomeController$_closure13.class
+-rw-r--r--   1 hkon  staff   2908 Mar 21 19:58 HomeController$_closure14.class
+-rw-r--r--   1 hkon  staff   2908 Mar 21 19:58 HomeController$_closure15.class
+-rw-r--r--   1 hkon  staff   3687 Mar 21 19:58 HomeController$_closure16.class
+-rw-r--r--   1 hkon  staff   3329 Mar 21 19:58 HomeController$_closure17.class
+-rw-r--r--   1 hkon  staff   3558 Mar 21 19:58 HomeController$_closure18.class
+-rw-r--r--   1 hkon  staff   3307 Mar 21 19:58 HomeController$_closure19.class
+-rw-r--r--   1 hkon  staff   3353 Mar 21 19:58 HomeController$_closure2.class
+-rw-r--r--   1 hkon  staff   2964 Mar 21 19:58 HomeController$_closure20.class
+-rw-r--r--   1 hkon  staff   3979 Mar 21 19:58 HomeController$_closure21.class
+-rw-r--r--   1 hkon  staff   3175 Mar 21 19:58 HomeController$_closure3.class
+-rw-r--r--   1 hkon  staff   3175 Mar 21 19:58 HomeController$_closure4.class
+-rw-r--r--   1 hkon  staff   3175 Mar 21 19:58 HomeController$_closure5.class
+-rw-r--r--   1 hkon  staff   3176 Mar 21 19:58 HomeController$_closure6.class
+-rw-r--r--   1 hkon  staff   3175 Mar 21 19:58 HomeController$_closure7.class
+-rw-r--r--   1 hkon  staff   3175 Mar 21 19:58 HomeController$_closure8.class
+-rw-r--r--   1 hkon  staff   3175 Mar 21 19:58 HomeController$_closure9.class
+-rw-r--r--   1 hkon  staff   9771 Mar 21 19:58 HomeController.class
+-rw-r--r--   1 hkon  staff  10170 Mar 21 19:58 HomeControllerTests.class
+-rw-r--r--   1 hkon  staff   6171 Mar 21 19:58 SearchHistElem.class
+-rw-r--r--   1 hkon  staff   2960 Mar 21 19:58 Sle$__clinit__closure1.class
+-rw-r--r--   1 hkon  staff   5974 Mar 21 19:58 Sle.class
+-rw-r--r--   1 hkon  staff   3112 Mar 21 19:58 SleController$_closure1.class
+-rw-r--r--   1 hkon  staff   4436 Mar 21 19:58 SleController$_closure2.class
+-rw-r--r--   1 hkon  staff   3578 Mar 21 19:58 SleController$_closure3.class
+-rw-r--r--   1 hkon  staff   4640 Mar 21 19:58 SleController$_closure4.class
+-rw-r--r--   1 hkon  staff   4397 Mar 21 19:58 SleController$_closure5.class
+-rw-r--r--   1 hkon  staff   4397 Mar 21 19:58 SleController$_closure6.class
+-rw-r--r--   1 hkon  staff   6074 Mar 21 19:58 SleController$_closure7.class
+-rw-r--r--   1 hkon  staff   5336 Mar 21 19:58 SleController$_closure8.class
+-rw-r--r--   1 hkon  staff   7026 Mar 21 19:58 SleController.class
+-rw-r--r--   1 hkon  staff  10164 Mar 21 19:58 SleControllerTests.class
+-rw-r--r--   1 hkon  staff   8986 Mar 21 19:58 SleTests.class
+-rw-r--r--   1 hkon  staff   7131 Mar 21 19:59 TodoController$_closure1.class
+-rw-r--r--   1 hkon  staff   3299 Mar 21 19:59 TodoController$_closure10.class
+-rw-r--r--   1 hkon  staff   4577 Mar 21 19:59 TodoController$_closure1_closure11.class
+-rw-r--r--   1 hkon  staff   2903 Mar 21 19:59 TodoController$_closure2.class
+-rw-r--r--   1 hkon  staff   3475 Mar 21 19:59 TodoController$_closure3.class
+-rw-r--r--   1 hkon  staff   9674 Mar 21 19:59 TodoController$_closure4.class
+-rw-r--r--   1 hkon  staff   3264 Mar 21 19:59 TodoController$_closure4_closure12.class
+-rw-r--r--   1 hkon  staff   5806 Mar 21 19:59 TodoController$_closure4_closure13.class
+-rw-r--r--   1 hkon  staff   4932 Mar 21 19:59 TodoController$_closure4_closure13_closure14.class
+-rw-r--r--   1 hkon  staff   3422 Mar 21 19:59 TodoController$_closure5.class
+-rw-r--r--   1 hkon  staff   4448 Mar 21 19:59 TodoController$_closure6.class
+-rw-r--r--   1 hkon  staff   4448 Mar 21 19:59 TodoController$_closure7.class
+-rw-r--r--   1 hkon  staff   6130 Mar 21 19:59 TodoController$_closure8.class
+-rw-r--r--   1 hkon  staff   5387 Mar 21 19:59 TodoController$_closure9.class
+-rw-r--r--   1 hkon  staff   9296 Mar 21 19:59 TodoController.class
+-rw-r--r--   1 hkon  staff  10170 Mar 21 19:58 TodoControllerTests.class
+-rw-r--r--   1 hkon  staff  10170 Mar 21 19:58 TofoControllerTests.class
+drwxr-xr-x  11 hkon  staff    374 Mar 21 19:58 util
+
+web-app/WEB-INF/classes/com/hk/util:
+total 160
+-rw-r--r--  1 hkon  staff   7396 Mar 21 19:58 FileLine.class
+-rw-r--r--  1 hkon  staff   1654 Mar 21 19:58 O.class
+-rw-r--r--  1 hkon  staff   2333 Mar 21 19:58 UrlConverterHttp.class
+-rw-r--r--  1 hkon  staff   5544 Mar 21 19:58 UtilAutocomplete.class
+-rw-r--r--  1 hkon  staff  12917 Mar 21 19:58 UtilDate.class
+-rw-r--r--  1 hkon  staff  12509 Mar 21 19:58 UtilFile.class
+-rw-r--r--  1 hkon  staff   5921 Mar 21 19:58 UtilTags$_convertMultiTagLinesToTagArray_closure1.class
+-rw-r--r--  1 hkon  staff   6538 Mar 21 19:58 UtilTags$_convertMultiTagLinesToTagArray_closure1_closure2.class
+-rw-r--r--  1 hkon  staff   7244 Mar 21 19:58 UtilTags.class
+
+web-app/WEB-INF/classes/hibernate:
+
+web-app/WEB-INF/classes/org:
+total 0
+drwxr-xr-x  3 hkon  staff  102 Mar 21 19:58 grails
+
+web-app/WEB-INF/classes/org/grails:
+total 0
+drwxr-xr-x  14 hkon  staff  476 Mar 21 19:58 tomcat
+
+web-app/WEB-INF/classes/org/grails/tomcat:
+total 232
+-rw-r--r--  1 hkon  staff   9372 Mar 21 19:58 ParentDelegatingClassLoader.class
+-rw-r--r--  1 hkon  staff  11759 Mar 21 19:58 SearchFirstURLClassLoader.class
+-rw-r--r--  1 hkon  staff  11949 Mar 21 19:58 TomcatLoader.class
+-rw-r--r--  1 hkon  staff   4716 Mar 21 19:58 TomcatServer$_preStart_closure4.class
+-rw-r--r--  1 hkon  staff   3407 Mar 21 19:58 TomcatServer$_preStart_closure4_closure7.class
+-rw-r--r--  1 hkon  staff   3381 Mar 21 19:58 TomcatServer$_start_closure1.class
+-rw-r--r--  1 hkon  staff   5649 Mar 21 19:58 TomcatServer$_start_closure2.class
+-rw-r--r--  1 hkon  staff   5291 Mar 21 19:58 TomcatServer$_start_closure2_closure5.class
+-rw-r--r--  1 hkon  staff   4453 Mar 21 19:58 TomcatServer$_start_closure2_closure5_closure6.class
+-rw-r--r--  1 hkon  staff   4917 Mar 21 19:58 TomcatServer$_start_closure3.class
+-rw-r--r--  1 hkon  staff  22499 Mar 21 19:58 TomcatServer.class
+-rw-r--r--  1 hkon  staff   7085 Mar 21 19:58 TomcatServerFactory.class
+
+web-app/WEB-INF/classes/spring:
+
+web-app/WEB-INF/tld:
+total 128
+-rw-r--r--  1 hkon  staff  15999 Jan 22 18:47 c.tld
+-rw-r--r--  1 hkon  staff  19595 Jan 22 18:47 fmt.tld
+-rw-r--r--  1 hkon  staff  18126 Dec 13 11:06 grails.tld
+-rw-r--r--  1 hkon  staff   7239 Dec 13 11:06 spring.tld
+
+web-app/css:
+total 24
+-rwxr-xr-x@ 1 hkon  staff  1637 May 25  2009 hubbub.css
+-rwxr-xr-x@ 1 hkon  staff  4880 May 25  2009 main.css
+
+web-app/images:
+total 128
+-rw-r--r--   1 hkon  staff  10134 Dec 13 11:06 favicon.ico
+-rw-r--r--   1 hkon  staff   8065 Dec 13 11:06 grails_logo.jpg
+-rw-r--r--   1 hkon  staff  10172 Dec 13 11:06 grails_logo.png
+-rwxr-xr-x@  1 hkon  staff   3030 May 25  2009 headerlogo.png
+-rw-r--r--   1 hkon  staff   3859 Dec 13 11:06 leftnav_btm.png
+-rw-r--r--   1 hkon  staff   2883 Dec 13 11:06 leftnav_midstretch.png
+-rw-r--r--   1 hkon  staff   3317 Dec 13 11:06 leftnav_top.png
+drwxr-xr-x  13 hkon  staff    442 Jan 22 18:22 skin
+-rw-r--r--   1 hkon  staff   2037 Dec 13 11:06 spinner.gif
+-rw-r--r--   1 hkon  staff   9109 Dec 13 11:06 springsource.png
+
+web-app/images/skin:
+total 88
+-rw-r--r--  1 hkon  staff  658 Dec 13 11:06 database_add.png
+-rw-r--r--  1 hkon  staff  659 Dec 13 11:06 database_delete.png
+-rw-r--r--  1 hkon  staff  767 Dec 13 11:06 database_edit.png
+-rw-r--r--  1 hkon  staff  755 Dec 13 11:06 database_save.png
+-rw-r--r--  1 hkon  staff  726 Dec 13 11:06 database_table.png
+-rw-r--r--  1 hkon  staff  701 Dec 13 11:06 exclamation.png
+-rw-r--r--  1 hkon  staff  806 Dec 13 11:06 house.png
+-rw-r--r--  1 hkon  staff  778 Dec 13 11:06 information.png
+-rw-r--r--  1 hkon  staff  300 Dec 13 11:06 shadow.jpg
+-rw-r--r--  1 hkon  staff  835 Dec 13 11:06 sorted_asc.gif
+-rw-r--r--  1 hkon  staff  834 Dec 13 11:06 sorted_desc.gif
+
+web-app/js:
+total 8
+-rw-r--r--   1 hkon  staff  373 Dec 13 11:06 application.js
+drwxr-xr-x   4 hkon  staff  136 Mar 17 04:04 jquery
+drwxr-xr-x  13 hkon  staff  442 Dec 15 08:18 prototype
+
+web-app/js/jquery:
+total 520
+-rw-r--r--  1 hkon  staff  183184 Mar 17 04:04 jquery-1.4.4.js
+-rw-r--r--  1 hkon  staff   78601 Mar 17 04:04 jquery-1.4.4.min.js
+
+web-app/js/prototype:
+total 784
+-rw-r--r--  1 hkon  staff    9927 Dec 13 11:06 animation.js
+-rw-r--r--  1 hkon  staff    4744 Dec 13 11:06 builder.js
+-rw-r--r--  1 hkon  staff   34787 Dec 13 11:06 controls.js
+-rw-r--r--  1 hkon  staff   31056 Dec 13 11:06 dragdrop.js
+-rw-r--r--  1 hkon  staff   38471 Dec 13 11:06 effects.js
+-rw-r--r--  1 hkon  staff  139854 Dec 15 08:18 prototype.js
+-rw-r--r--  1 hkon  staff   84381 Dec 13 11:06 rico.js
+-rw-r--r--  1 hkon  staff    2936 Dec 13 11:06 scriptaculous.js
+-rw-r--r--  1 hkon  staff   10162 Dec 13 11:06 slider.js
+-rw-r--r--  1 hkon  staff    2456 Dec 13 11:06 sound.js
+-rw-r--r--  1 hkon  staff   20209 Dec 13 11:06 unittest.js

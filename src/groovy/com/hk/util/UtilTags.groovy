@@ -6,8 +6,9 @@ import org.hsqldb.lib.HashSet;
 
 public class UtilTags {
 
-	public static ArrayList<String> convertMultiTagLinesToTagArray(ArrayList<String> fileLines, Set<String> setTagsAlreadyKnownOUT, String autocomp)
+	public static ArrayList<String> convertMultiTagLinesToTagArray(ArrayList<String> fileLines, String autocomp)
 	{
+		HashSet<String> setTagsAlreadyKnown = new HashSet<String>(); 
 		fileLines = fileLines.reverse ();
 				//String[] sarr = (String[] ) fileLines.toArray(new String[0] a);
 		ArrayList alTagsRtn = new ArrayList();  
@@ -29,21 +30,31 @@ public class UtilTags {
 						{
 							tag = tag.trim();
 							
-							if (!setTagsAlreadyKnownOUT.contains(tag))
+							if (!setTagsAlreadyKnown.contains(tag))
 							{
 								//O.o("adding tag hist [" + tag.trim() + "] srchStr [" + autocomp + "]");
 								if (iCnt < (tags.length-1)) // don't want instance data - assumed to be after last " / "
 									alTagsRtn.add (tag.trim());
-								setTagsAlreadyKnownOUT.add tag
+								setTagsAlreadyKnown.add tag
 							}
 						}
 					}
 				}
 			}
+			if (alTagsRtn.size() == 0)
+			{
+//				if (!autocomp.equals("autocomplete test"))
+//					alTagsRtn.add ("sorry hombre, no matches for " + autocomp);
+			}
+			
 			O.o ("generated [" + alTagsRtn.size() + "] tags from [" + fileLines.size()+ "] filelines")
 		}
 		else
-			O.o ("autocomp < size min")
+		{
+			if (autocomp.length() == 1)
+				alTagsRtn.add ("one more letter hombre, you can do it!");
+		}	
+		//O.o ("autocomp < size min")
 		
 		return alTagsRtn;
 	}

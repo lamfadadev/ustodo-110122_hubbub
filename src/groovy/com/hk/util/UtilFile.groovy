@@ -86,7 +86,7 @@ class UtilFile {
 			BufferedReader inx = null;
 			inx = new BufferedReader(new FileReader(filename));
 			int iCnt = -1;
-			O.o "start:" + lineCountToStartKeepAt;
+			//O.o "start:" + lineCountToStartKeepAt;
 			while (inx.ready())     
 			{
 				iCnt++;
@@ -101,7 +101,7 @@ class UtilFile {
 					// iRet = Integer.valueOf(stextline).intValue();
 				}
 			}
-			O.o("added file lines [" + iCnt + "]");
+			// O.o("added file lines [" + iCnt + "]");
 			inx.close();
 			
 			return alRtn;
