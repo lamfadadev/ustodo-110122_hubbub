@@ -17,7 +17,7 @@
 		value="${srchstr}" />
 		
 <br>		
-<input type="text" size="25" value="autocomplete test" onkeyup=
+<input type="text" size="25" value="autocomplete test" onkeyup		=
    "${remoteFunction(action:'autocompleteSearch',
    update:[success:'autocomplete', failure:'autocomplete'], 
    params:'\'autocomp=\' + this.value' )}"> 	
@@ -39,6 +39,12 @@
 <g:if test="${flash.message}">
 	${fqFileName}
 </g:if>
+
+
+<script><%--
+alert($ == jQuery)--%>
+</script>
+
 
 
 <%--  ===== LIST OUTPUT HERE ====== --%>

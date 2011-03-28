@@ -37,6 +37,7 @@ class TodoController {
 		//String now = com.hk.util.UtilDate.getDateForFile();
 		//String timeToRestoreAuth = "2011-03-22 03:12:54"; 
 		//if (now.compareTo (timeToRestoreAuth) > 0 && !authenticationService.isLoggedIn(request))
+		O.o("authenticationService:" + authenticationService.getClass().getName());
 		if (!authenticationService.isLoggedIn(request))
 		{
 			//O.o "inside:: compared [" + now + " to [" + "2011-03-22 03:12:54" + "] get [" + now.compareTo ("2011-03-22 03:12:54") + "]"
@@ -265,7 +266,7 @@ class TodoController {
 			iCnt++;
 			String tag = it;
 			tag = tag.replaceAll (autocomp_userInput,"<font color=blue>"+autocomp_userInput+"</font>");
-			sb.append (iCnt + ".[" + tag.toString() +  "]&nbsp;&nbsp;&nbsp;&nbsp;              ");
+			sb.append ("<br>" + iCnt + ".[" + tag.toString() +  "]&nbsp;&nbsp;&nbsp;&nbsp;              ");
 		}
 		String sRtn = sb.toString();
 		//O.o("rtn [" + sRtn + "]")
