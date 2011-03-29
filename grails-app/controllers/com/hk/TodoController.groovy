@@ -116,10 +116,13 @@ class TodoController {
 				ArrayList alfilelines = session.getAttribute ("alfilelines");
 				if (alfilelines != null) 
 				{
-					O.o "added to alfilelines [" + lineout + "]"
+					O.o "in index added to alfilelines [" + lineout + "]"
 					alfilelines.add(lineout);
 					session.setAttribute("alfilelines", alfilelines);
 				}
+				else
+					O.o "in index OOPS: added to alfilelines [" + lineout + "]"
+				
 
 				flash['message'] = " [" + lineout + "]"
 				//O.o("write pos last / [" + srchstr.lastIndexOf('/') + "] on str [" + srchstr + "]");
@@ -236,6 +239,7 @@ class TodoController {
 		O.o ("autocomplete user [" + getUser() + "] autocomp [" + autocomp_userInput + "]");
 		if (autocomp_userInput == null)
 		{
+			O.o ("autocomplete empty");
 			render "empty autocomp";
 			return;
 		}
@@ -246,7 +250,8 @@ class TodoController {
 		//O.o("session user:" + session.user)
 		
 		alfilelines = session.getAttribute ("alfilelines");
-		if (alfilelines == null) // needs to be session-scoped probably
+		if (true || alfilelines == null) // needs to be session-scoped probably
+		//if (alfilelines == null) // needs to be session-scoped probably
 		{
 			O.o("re-read file to build alfilelines");
 			user1 = getUser();
@@ -255,9 +260,14 @@ class TodoController {
 			long lineCountToStartKeepAt = fileLen - 500;
 			if (lineCountToStartKeepAt < 0)
 				lineCountToStartKeepAt = 0
+			O.o("re-read file lineCountToStartKeepAt:"+lineCountToStartKeepAt);
 			alfilelines = com.hk.util.UtilFile.fileAsList (fqFileName, new Boolean(false), "", lineCountToStartKeepAt);
 			// cache file in mem
 			session.setAttribute "alfilelines", alfilelines
+		}
+		else
+		{
+			O.o ("in autocomplete no read file");
 		}
 		alTagsHistoricalNewFirst = com.hk.util.UtilTags.convertMultiTagLinesToTagArray  (alfilelines, autocomp_userInput);
 		
