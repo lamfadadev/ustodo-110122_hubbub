@@ -7,6 +7,14 @@
 <meta name="layout" content="main"></meta>
 <script type="text/javascript">
 
+function clearblotter()
+{
+	//alert ("in hktest")
+	document.getElementById('fld1userinput').value = ""; // clear 
+	document.getElementById('fld2sought').value = ""; // clear 
+	document.getElementById('fld3saved').value = ""; // clear 
+	document.getElementById('textareablotter').value = ""; // clear 
+}
 
 function postautocomplete (s)
 {
@@ -15,7 +23,7 @@ function postautocomplete (s)
 	//alert("in postautocomplete3r:" + r);
 	 //autotgtdivHTMLpre = document.getElementById('autotgtdiv').innerHTML;
 	 //document.getElementById('listoutput').innerHTML = ""; // clear 
-	var a = document.getElementById('userinputauto').value;
+	var a = document.getElementById('fld1userinput').value;
 	//def a = document.getElementById('srchstr2').value;
 	// alert("success")
 	 
@@ -43,12 +51,11 @@ function postautocomplete (s)
 </script>
 </head>
 <body bgcolor="FFFFFF">
-<%--<script>
-alert("hi beth");
-</script>--%>
+
 <%--  ===== HEADER AND SEARCH FORM / TEXT BOX ====== --%>
 <font color=black face="Arial">
 <div class="form"><%--<formset>--%> <g:form action="index">
+
 	<label for="userId"></label>
 
 	<%-- ========== AUTOTGTDIV --%>
@@ -58,12 +65,12 @@ alert("hi beth");
 		<tr>
 			<td>
 			<table>
+				<%-- ========== 1 BUTTON AND AJAX FIELD -- INPUT REMOTE FUNCTION AUTOCOMPLETE SOURCE --%>
 				<tr>
-					<%-- ========== BUTTON AND AJAX FIELD -- INPUT REMOTE FUNCTION AUTOCOMPLETE SOURCE --%>
 					<td><font size=-2> <g:submitButton name="search"
 						value="Do" /></font>
 					</td>
-					<td><input name='srchstr2' id='userinputauto' type="text"
+					<td><input name='srchstr2' id='fld1userinput' type="text"
 						size="125" value="${srchstr}"
 						onkeyup="${
 							remoteFunction (action:'autocompleteSearch',
@@ -71,27 +78,43 @@ alert("hi beth");
 							params:'\'autocomp=\' + this.value', 
 							onComplete:'postautocomplete();')} ">
 					</td>
+
+				<%-- ========== 2 TEXTFIELD SRCHSTR --%>
 				</tr>
 				<tr>
-					<%-- ========== TEXTFIELD SRCHSTR --%>
-					<td><font size=-2>Last done:</font>&nbsp;&nbsp;
+					<td><font size=-2>Sought:</font>&nbsp;&nbsp;
 					</td>
-					<td><g:textField size="130" name="srchstr" value="${srchstr}" />
+					<td><g:textField size="130" id="fld2sought" name="srchstr" value="${srchstr}" /><%--
 					</td>
-				</tr>
-				<tr>
-					<td><font size=-2>Last save:</font>&nbsp;&nbsp;
+						<td><font size=-2>Saved:</font>&nbsp;&nbsp;
 					</td>
 					<td><g:textField size="130" name="lineout" value="${lineout}" />
 					</td>
-				</tr>
+				--%></tr>
+
+				<%-- ========== 3 TEXTFIELD SRCHSTR --%>
 				<tr>
-					<%-- ========== BLOTTER TEXTAREA --%>
-					<td><font size=-2>Blotter:</font>&nbsp;&nbsp;
 					</td>
-					<td><g:textArea name="textareablotter" value="hh:"+"gg:" rows="1" cols="105"
+						<td><font size=-2>Saved:</font>&nbsp;&nbsp;
+					</td>
+					<td><g:textField size="130"  id="fld3saved" name="lineout" value="${lineout}" />
+					</td>
+				</tr>
+				<%-- ========== 4 BLOTTER TEXTAREA --%>
+				<tr>
+					<td><font size=-2>Scratch:</font>&nbsp;&nbsp;
+					</td>
+					<td><g:textArea name="textareablotter" id="textareablotter" value="${textareablotter}" rows="3" cols="105 "
 						onclick="this.focus();this.select()" />
-					</td>
+						<br>
+					<%--<FORM> 
+					 --%><INPUT type="button" value="Clear" name="button2" onClick="clearblotter()">
+					 <%--<INPUT type="button" value="Yellow!" name="button3" onClick="document.bgColor='yellow'">  </FORM>
+					 --%><INPUT type="button" value="Yellow!" name="button3" onClick="document.bgColor='000011'">  </FORM>
+					<%--<FORM> </FORM>
+
+						
+					--%></td>
 				</tr>
 
 			</table>
@@ -125,9 +148,12 @@ alert("hi beth");
 </div>
 <g:if test="${flash.message}">
 FLASH:	${fqFileName}
-</g:if> <script><%--
-alert($ == jQuery)--%>
-</script> <%--  ===== LIST OUTPUT HERE ====== --%>
+</g:if> 
+<%--<script>
+alert($ == jQuery)
+</script> 
+
+--%><%--  ===== LIST OUTPUT HERE ====== --%>
 
 <div id='listoutput'>
 <table>

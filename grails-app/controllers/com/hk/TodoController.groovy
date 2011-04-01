@@ -37,11 +37,11 @@ class TodoController {
 		//String now = com.hk.util.UtilDate.getDateForFile();
 		//String timeToRestoreAuth = "2011-03-22 03:12:54"; 
 		//if (now.compareTo (timeToRestoreAuth) > 0 && !authenticationService.isLoggedIn(request))
-		O.o("authenticationService:" + authenticationService.getClass().getName());
-		O.o("params.lineout:" + params.lineout);
-		O.o("params.srchstr:" + params.srchstr);
-		O.o("params.textareablotter:" + params.textareablotter);
-		def textareablotterx = params.textareablotter; 
+		//O.o("authenticationService:" + authenticationService.getClass().getName());
+		//O.o("params.lineout:" + params.lineout);
+		//O.o("params.srchstr:" + params.srchstr);
+		//O.o("params.textareablotter:" + params.textareablotter);
+		def textareablotter = params.textareablotter; 
 		if (!authenticationService.isLoggedIn(request))
 		{
 			//O.o "inside:: compared [" + now + " to [" + "2011-03-22 03:12:54" + "] get [" + now.compareTo ("2011-03-22 03:12:54") + "]"
@@ -119,7 +119,7 @@ class TodoController {
 				new File(fqFileName).withWriterAppend { out ->
 					out.writeLine(lineout);
 				}
-				mode = "Saved: [" + lineout+ "] &nbsp; to ["+fqFileName+"]"
+				//mode = "Saved: [" + lineout+ "] &nbsp; to ["+fqFileName+"]"
 				// SAVE WRITE LINE TO IN MEM ARRAY REFLECTION OF FILE FOR AUTOCOMPLETE
 				ArrayList alfilelines = session.getAttribute ("alfilelines");
 				if (alfilelines != null) 
@@ -132,15 +132,17 @@ class TodoController {
 					O.o "in index OOPS: added to alfilelines [" + lineout + "]"
 				
 
-				flash['message'] = " [" + lineout + "]"
+				if (lineout != null && lineout.trim().equals(""))					
+					flash['message'] = " [" + lineout + "]"
+
 				//O.o("write pos last / [" + srchstr.lastIndexOf('/') + "] on str [" + srchstr + "]");
 				srchstr = srchstr [0..(srchstr.lastIndexOf(' / ')-1)] + " / "
-				textareablotterx = textareablotterx + ". wrote [" + lineout + "]"
+				textareablotter = "[" + lineout + "]   " + textareablotter 
 				//O.o "ss:" + srchstr;
 			}
 			else
 			{
-				textareablotterx = textareablotterx + ". find [" + srchstr + "]"
+				textareablotter = "[" + srchstr + "]   " + textareablotter 
 			}
 
 			// SRCH SRCH SRCH SRCH SRCH SRCH
@@ -236,11 +238,11 @@ class TodoController {
 			if (params.maxAge == null || params.maxAge.trim().equals(""))
 				params.maxAge = "3y"
 
-					O.o("textareablotterx: "+textareablotterx);
+					O.o("textareablotterx: "+textareablotter);
 			[srchstr: srchstr, seq:seq, alFileLines: alFileLines , cbword: params.cbword
 						, cborder: params.cborder, hktest: "hkteststr", maxAge: params.maxAge, alFileLines: alFileLines,
 						fqFileName: ("<font color=\"GREEN\">"+mode), seq:seq,  user1:user1, lineout: lineout,
-						textareablotterx: textareablotterx
+						textareablotter: textareablotter
 						]
 		}
 	}
