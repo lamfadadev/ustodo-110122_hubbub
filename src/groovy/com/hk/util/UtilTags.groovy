@@ -51,8 +51,8 @@ public class UtilTags {
 		}
 		else
 		{
-			if (autocomp.length() == 1)
-				alTagsRtn.add ("one more letter hombre, you can do it!");
+			//if (autocomp.length() == 1)
+			//		alTagsRtn.add ("one more letter hombre, you can do it!");
 		}	
 		//O.o ("autocomp < size min")
 		
