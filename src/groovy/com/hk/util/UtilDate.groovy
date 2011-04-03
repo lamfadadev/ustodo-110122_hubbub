@@ -4,6 +4,8 @@ class UtilDate {
 	
 	public static String renderAgeAsLetterFromNowToFileDateStr (String d)
 	{
+		
+		//O.o("date processing [" + d + "] len ["+ "]");
 		try
 		{
 			// NOW
@@ -46,7 +48,10 @@ class UtilDate {
 			else if (ago < _hh)
 			{
 				int ageInMins = Math.round(ago/_mn);
-				return ageInMins+"mn"
+				if (ageInMins < 50)
+					return "<h"
+				else
+					return "1h"
 			}
 			
 			else if (ago < _dd)

@@ -1,19 +1,53 @@
 <%@page import="com.hk.util.FileLine"%>
 <%@page import="org.junit.internal.matchers.CombinableMatcher"%>
 <html>
-<head>
-<TITLE>UTD/${srchstr}
+<head><%--
+document.body.onLoad=onloadhk2()
+--%><TITLE>UTD/${srchstr}
 </TITLE>
 <meta name="layout" content="main"></meta>
 <script type="text/javascript">
 
-function clearblotter()
+
+function fnmakescratchbig()
+{
+	//alert("hi fnmakescratchbig");
+	//document.hkformname.textareablotter.height=50
+	if (document.getElementById('fld4textareablotter').rows == 3) {
+		document.getElementById('fld4textareablotter').rows = 20; // clear name="textareablotter" id="fld4textareablotter" v
+		document.getElementById('button4More').value="Less"; // clear name="textareablotter" id="fld4textareablotter" v
+		//document.hkformname.button4More.value="more"
+	}
+	else {
+		document.getElementById('fld4textareablotter').rows = 3; // clear name="textareablotter" id="fld4textareablotter" v
+		document.getElementById('button4More').value="More"; // clear name="textareablotter" id="fld4textareablotter" v
+		
+	}
+}
+
+function clearfields()
 {
 	//alert ("in hktest")
 	document.getElementById('fld1userinput').value = ""; // clear 
 	document.getElementById('fld2sought').value = ""; // clear 
 	document.getElementById('fld3saved').value = ""; // clear 
-	document.getElementById('textareablotter').value = ""; // clear 
+	document.getElementById('fld4textareablotter').value = ""; // clear 
+	document.bgColor='#AAAAAA';
+}
+function onloadhk()
+{
+	//alert("hi hk in onloadhk");
+	//document.bgColor='#AAAAAA';
+	document.bgColor='rgb(232,232,232)'
+	document.hkformname.srchstr2.focus();
+}
+function fncopysought()
+{
+	document.getElementById('fld1userinput').value = document.getElementById('fld2sought').value; //copy sought categ 
+}
+function fncopysaved()
+{
+	document.getElementById('fld1userinput').value = document.getElementById('fld3saved').value; //copy sought categ 
 }
 
 function postautocomplete (s)
@@ -50,15 +84,23 @@ function postautocomplete (s)
 }
 </script>
 </head>
-<body bgcolor="FFFFFF">
 
-<%--  ===== HEADER AND SEARCH FORM / TEXT BOX ====== --%>
-<font color=black face="Arial">
-<div class="form"><%--<formset>--%> <g:form action="index">
+<body onLoad="onloadhk()"> 
+   <%--
+
+--%><%--  ===== HEADER AND SEARCH FORM / TEXT BOX ====== --%>
+<font color=black face="Arial"><%--
+
+TRY TO RETURN HERE AFTER AUTH - NOT WORKING YET - HOPEFULLY WILL APPEAR
+--%><auth:form authAction="signup" success="[controller:'todo', action:'index']" error="[controller:'todo', action:'index']">
+</auth:form>
+
+
+<div class="form"><%--<formset>--%> <g:form name="hkformname" action="index">
 
 	<label for="userId"></label>
 
-	<%-- ========== AUTOTGTDIV --%>
+	<%-- ========== AUTOCOMPLETE SEARCH --%>
 	<br>
 
 	<table>
@@ -67,9 +109,11 @@ function postautocomplete (s)
 			<table>
 				<%-- ========== 1 BUTTON AND AJAX FIELD -- INPUT REMOTE FUNCTION AUTOCOMPLETE SOURCE --%>
 				<tr>
-					<td><font size=-2> <g:submitButton name="search"
-						value="Do" /></font>
-					</td>
+					<td><font size=-2> <g:submitButton  name="search"
+						value="Do" /></font><%--
+						<font size=-2>Seek:</font>&nbsp;&nbsp;
+						
+					--%></td>
 					<td><input name='srchstr2' id='fld1userinput' type="text"
 						size="125" value="${srchstr}"
 						onkeyup="${
@@ -79,12 +123,16 @@ function postautocomplete (s)
 							onComplete:'postautocomplete();')} ">
 					</td>
 
-				<%-- ========== 2 TEXTFIELD SRCHSTR --%>
+				<%-- ========== 2 TEXTFIELD SOUGHT --%>
 				</tr>
 				<tr>
 					<td><font size=-2>Sought:</font>&nbsp;&nbsp;
 					</td>
-					<td><g:textField size="130" id="fld2sought" name="srchstr" value="${srchstr}" /><%--
+					<td>
+						<g:textField size="130" id="fld2sought" name="srchstr" value="${srchstr}" />
+	  					<INPUT type="button" value="" name="buttoncopysought" onClick="fncopysought()">
+					</td>
+					<%--
 					</td>
 						<td><font size=-2>Saved:</font>&nbsp;&nbsp;
 					</td>
@@ -92,29 +140,30 @@ function postautocomplete (s)
 					</td>
 				--%></tr>
 
-				<%-- ========== 3 TEXTFIELD SRCHSTR --%>
+				<%-- ========== 3 TEXTFIELD SAVED --%>
 				<tr>
 					</td>
 						<td><font size=-2>Saved:</font>&nbsp;&nbsp;
 					</td>
-					<td><g:textField size="130"  id="fld3saved" name="lineout" value="${lineout}" />
+					<td>
+						<g:textField size="130"  id="fld3saved" name="lineout" value="${lineout}" />
+						<INPUT type="button" value="" name="buttoncopysaved" onClick="fncopysaved()">
 					</td>
 				</tr>
-				<%-- ========== 4 BLOTTER TEXTAREA --%>
+				
+				<%-- ========== 4 TEXTAREA SCRATCH --%>
 				<tr>
 					<td><font size=-2>Scratch:</font>&nbsp;&nbsp;
 					</td>
-					<td><g:textArea name="textareablotter" id="textareablotter" value="${textareablotter}" rows="3" cols="105 "
+					<td><g:textArea name="textareablotter" id="fld4textareablotter" value="${textareablotter}" rows="3" cols="100"
 						onclick="this.focus();this.select()" />
-						<br>
-					<%--<FORM> 
-					 --%><INPUT type="button" value="Clear" name="button2" onClick="clearblotter()">
-					 <%--<INPUT type="button" value="Yellow!" name="button3" onClick="document.bgColor='yellow'">  </FORM>
-					 --%><INPUT type="button" value="Yellow!" name="button3" onClick="document.bgColor='000011'">  </FORM>
-					<%--<FORM> </FORM>
-
-						
-					--%></td>
+						<FORM>
+					 		<INPUT type="button" value="Clear" name="button2" onClick="clearfields()">
+					 		<%--<INPUT type="button" value="Grey" name="button3" onClick="document.bgColor='rgb(232,232,232)'">--%>
+					 		<INPUT type="button" value="More" name="button4Morename" id="button4More" onClick="fnmakescratchbig()">
+					 		
+						</FORM>
+					</td>
 				</tr>
 
 			</table>
@@ -153,7 +202,7 @@ FLASH:	${fqFileName}
 alert($ == jQuery)
 </script> 
 
---%><%--  ===== LIST OUTPUT HERE ====== --%>
+--%><%--  ===== LIST OUTPUT ======================== --%>
 
 <div id='listoutput'>
 <table>
@@ -169,10 +218,10 @@ alert($ == jQuery)
 				<%--REVERSE COUNTER--%>
 				<td><font color="purple" size=-1> ${fl.ageLetter} </font></td>
 
-				<td><g:if test="${maxAge.contains('+')}">
+				<td>
 					<td><font color="blue" size=-1> ${(i+1).toString()}
 					</font>
-				</g:if> </td>
+				</td>
 				<td><g:checkBox name="cbword" value="${cbword}" /></td>
 				<td>
 				<g:if test="${maxAge.contains('+')}">

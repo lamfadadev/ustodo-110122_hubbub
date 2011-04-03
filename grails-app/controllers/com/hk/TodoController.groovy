@@ -14,7 +14,7 @@ class TodoController {
 	def authenticationService
 	private List<String> alfilelines = null;
 	private List<String> altags = null;
-	private List<String> alTagsHistoricalNewFirst = null;
+	private List<String> alFileLinesHistoricalNewFirst = null;
 	private String user1 = null;
 	private String fqFileName = null;
 
@@ -286,14 +286,14 @@ class TodoController {
 		{
 			O.o ("in autocomplete no read file");
 		}
-		alTagsHistoricalNewFirst = com.hk.util.UtilTags.convertMultiTagLinesToTagArray  (alfilelines, autocomp_userInput);
+		alFileLinesHistoricalNewFirst = com.hk.util.UtilTags.getAutoCompleteLinesOut  (alfilelines, autocomp_userInput);
 		
 		int iCnt = 0;
-		alTagsHistoricalNewFirst.each {
+		alFileLinesHistoricalNewFirst.each {
 			iCnt++;
 			String tag = it;
-			tag = tag.replaceAll (autocomp_userInput,"<font color=blue>"+autocomp_userInput+"</font>");
-			sb.append ("<br>" + iCnt + ".[" + tag.toString() +  "]&nbsp;&nbsp;&nbsp;&nbsp;              ");
+			//tag = tag.replaceAll (autocomp_userInput,"<font color=blue>"+autocomp_userInput+"</font>");
+			sb.append ("<br>" + iCnt + ".  " + tag.toString() +  "&nbsp;&nbsp;              ");
 		}
 		String sRtn = sb.toString();
 		//O.o("rtn [" + sRtn + "]")
