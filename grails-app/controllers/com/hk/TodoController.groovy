@@ -3,6 +3,7 @@ package com.hk
 import com.hk.util.O;
 import com.hk.util.FileLine;
 import com.hk.util.UrlConverterHttp;;
+import com.hk.util.UtilFile;
 import com.grailsinaction.User;
 import grails.converters.JSON;
 
@@ -42,6 +43,7 @@ class TodoController {
 		//O.o("params.srchstr:" + params.srchstr);
 		//O.o("params.textareablotter:" + params.textareablotter);
 		def textareablotter = params.textareablotter; 
+		O.o ("TODO index request.class:" + request.getClass().getName());
 		if (!authenticationService.isLoggedIn(request))
 		{
 			//O.o "inside:: compared [" + now + " to [" + "2011-03-22 03:12:54" + "] get [" + now.compareTo ("2011-03-22 03:12:54") + "]"
@@ -76,7 +78,7 @@ class TodoController {
 
 			def alFileLines = new ArrayList<FileLine>();
 			if (srchstr == null || (srchstr).trim().equals("")) {
-				srchstr = "grails"
+				srchstr = "grails"; // was grails 
 			}
 
 			srchstr = srchstr.trim()
@@ -105,14 +107,15 @@ class TodoController {
 			String lineout = params.lineout;
 			if (srchstr.trim().startsWith("w ") || srchstr.trim().endsWith(" w") )
 			{
+				O.o("pre trimmed srchstr in write:" + srchstr);
 				bwrite = true;
 				if (srchstr.trim().startsWith("w "))
 					srchstr = srchstr[2..-1] // remove "w "
 				if (srchstr.trim().endsWith(" w"))
 					srchstr = srchstr[0..(srchstr.length()-2)] // remove " w"
-
+					
 				srchstr = srchstr.trim();
-
+				O.o("post trimmed srchstr in write:" + srchstr);
 				lineout = com.hk.util.UtilDate.getDateForFile() + " " + srchstr;
 				//O.o("saved lineout:" + lineout.toString());
 				//O.o("try existing file:" + fqFileName );
@@ -136,7 +139,7 @@ class TodoController {
 					flash['message'] = " [" + lineout + "]"
 
 				//O.o("write pos last / [" + srchstr.lastIndexOf('/') + "] on str [" + srchstr + "]");
-				srchstr = srchstr [0..(srchstr.lastIndexOf(' / ')-1)] + " / "
+				//srchstr = srchstr [0..(srchstr.lastIndexOf(' / ')-1)] + " / "
 				textareablotter = "[" + lineout + "]   " + textareablotter 
 				//O.o "ss:" + srchstr;
 			}
@@ -180,36 +183,43 @@ class TodoController {
 			//now do multi-search output
 			File f = new File(fqFileName)
 			int i = 0
+			def start = 0;
+			if (srchstr.equals(""))
+				start = UtilFile.fileLen(fqFileName) - 1000;
+				
 			// FOR EACH FILE LINE
 			f.eachLine
 			{
+				boolean hitRemove = false;
 				i++; // 1based line num counter
 				String fileLineRaw = ((String) it).trim();
 				String fileLineRawLower = fileLineRaw.toLowerCase();
-				// FOR EACH SRCH WORD MATCH MATCH MATCH MATCH MATCH
-				boolean hitRemove = false;
-				(srchstrPostWriteStripInstance.split(" ")).eachWithIndex
-				{ srchWrd, ii ->
-					srchWrd = srchWrd.trim().toLowerCase();
-					if (!hitRemove)
-					{
-						if (srchWrd.startsWith("-")) // subtractive search
+				if (i > start)
+				{
+					// FOR EACH SRCH WORD MATCH MATCH MATCH MATCH MATCH
+					(srchstrPostWriteStripInstance.split(" ")).eachWithIndex
+					{ srchWrd, ii ->
+						srchWrd = srchWrd.trim().toLowerCase();
+						if (!hitRemove)
 						{
-							//O.o ((new Date()).toString() + "********* in sub testing neg on [" + srchWrd + "]");
-							if (srchWrd.length() > 1 && fileLineRawLower.contains(srchWrd[1..-1])) // / ignoreif there is a "-" alone
+							if (srchWrd.startsWith("-")) // subtractive search
 							{
-								hitRemove = true;
-								//O.o ((new Date()).toString() + "hit remove yes false");
+								//O.o ((new Date()).toString() + "********* in sub testing neg on [" + srchWrd + "]");
+								if (srchWrd.length() > 1 && fileLineRawLower.contains(srchWrd[1..-1])) // / ignoreif there is a "-" alone
+								{
+									hitRemove = true;
+									//O.o ((new Date()).toString() + "hit remove yes false");
+								}
 							}
-						}
-						else // positive search
-						{
-							if (!fileLineRawLower.contains(srchWrd))
+							else // positive search
 							{
-								hitRemove = true;
-							} else
-							{
-								//O.o ((new Date()).toString() + "found match on searchword [" + srchWrd + "]");
+								if (!fileLineRawLower.contains(srchWrd))
+								{
+									hitRemove = true;
+								} else
+								{
+									//O.o ((new Date()).toString() + "found match on searchword [" + srchWrd + "]");
+								}
 							}
 						}
 					}
@@ -238,7 +248,7 @@ class TodoController {
 			if (params.maxAge == null || params.maxAge.trim().equals(""))
 				params.maxAge = "3y"
 
-					O.o("textareablotterx: "+textareablotter);
+			//		O.o("textareablotterx: "+textareablotter);
 			[srchstr: srchstr, seq:seq, alFileLines: alFileLines , cbword: params.cbword
 						, cborder: params.cborder, hktest: "hkteststr", maxAge: params.maxAge, alFileLines: alFileLines,
 						fqFileName: ("<font color=\"GREEN\">"+mode), seq:seq,  user1:user1, lineout: lineout,
@@ -251,6 +261,14 @@ class TodoController {
 
 	
 	def autocompleteSearch = {
+		user1 = getUser();
+		fqFileName = '/Users/hkon/sw/ustodo/favs' + user1 + '.csv';
+		O.o ("TODO autocompleteSearch fqFileName :" + fqFileName );
+		//O.o ("TODO autocompleteSearch request.class:" + request.getClass().getName());
+		if (!authenticationService.isLoggedIn(request) || user1 == null)
+		{
+			render "not logged in";
+		}
 		String srchStr = params['textstr'];
 		String autocomp_userInput = params['autocomp'];
 		O.o ("autocomplete user [" + getUser() + "] autocomp [" + autocomp_userInput + "]");
@@ -267,34 +285,37 @@ class TodoController {
 		//O.o("session user:" + session.user)
 		
 		alfilelines = session.getAttribute ("alfilelines");
-		if (true || alfilelines == null) // needs to be session-scoped probably
-		//if (alfilelines == null) // needs to be session-scoped probably
+		if (autocomp_userInput.length() > 2)
 		{
-			O.o("re-read file to build alfilelines");
-			user1 = getUser();
-			fqFileName = '/Users/hkon/sw/ustodo/favs' + user1 + '.csv';
-			long fileLen = com.hk.util.UtilFile.fileLen (fqFileName);
-			long lineCountToStartKeepAt = fileLen - 500;
-			if (lineCountToStartKeepAt < 0)
-				lineCountToStartKeepAt = 0
-			O.o("re-read file lineCountToStartKeepAt:"+lineCountToStartKeepAt);
-			alfilelines = com.hk.util.UtilFile.fileAsList (fqFileName, new Boolean(false), "", lineCountToStartKeepAt);
-			// cache file in mem
-			session.setAttribute "alfilelines", alfilelines
-		}
+			if (true || alfilelines == null) // needs to be session-scoped probably
+			//if (alfilelines == null) // needs to be session-scoped probably
+			{
+				//O.o("re-read file for auto [" + autocomp_userInput + "] to build alfilelines", true);
+				//O.o("TODOC. BEGIN re-read file lineCountToStartKeepAt:"+lineCountToStartKeepAt);
+				alfilelines = com.hk.util.UtilFile.fileAsList (fqFileName, new Boolean(false), "", 500);
+				//O.o("TODOC. DONE re-read file alfilelines.size():"+alfilelines.size());
+				// cache file in mem
+				session.setAttribute "alfilelines", alfilelines
+			}
+			else
+			{
+				O.o ("in autocomplete no read file");
+			}
+			O.o("autocomp seeking matches to [" + autocomp_userInput + "] across [" + alfilelines.size() + "] lines.");
+			alFileLinesHistoricalNewFirst = com.hk.util.UtilTags.getAutoCompleteLinesOut  (alfilelines, autocomp_userInput, 200, getUser());
+			O.o("autocomp got# [" + alFileLinesHistoricalNewFirst.size() + "] matches to [" + autocomp_userInput + "] across [" + alfilelines.size() + "] lines.");
+			
+			int iCnt = 0;
+			alFileLinesHistoricalNewFirst.each {
+				iCnt++;
+				String tag = it;
+				//O.o("in todo ((((((((((((((((  tag [" + tag + "]");
+				//tag = tag.replaceAll (autocomp_userInput,"<font color=blue>"+autocomp_userInput+"</font>");
+				sb.append ("<br>" + iCnt + ". " + tag +  "&nbsp;&nbsp;");
+			}
+		} // if len > 2
 		else
-		{
-			O.o ("in autocomplete no read file");
-		}
-		alFileLinesHistoricalNewFirst = com.hk.util.UtilTags.getAutoCompleteLinesOut  (alfilelines, autocomp_userInput);
-		
-		int iCnt = 0;
-		alFileLinesHistoricalNewFirst.each {
-			iCnt++;
-			String tag = it;
-			//tag = tag.replaceAll (autocomp_userInput,"<font color=blue>"+autocomp_userInput+"</font>");
-			sb.append ("<br>" + iCnt + ".  " + tag.toString() +  "&nbsp;&nbsp;              ");
-		}
+			O.o("too short for autocomplete [" + autocomp_userInput+ "]");
 		String sRtn = sb.toString();
 		//O.o("rtn [" + sRtn + "]")
 		render sRtn;
@@ -303,7 +324,7 @@ class TodoController {
 		//render new java.util.Date().toString();
 	}
 
-	private String getUser()
+	public String getUser()
 	{
 		//O.o ("auth.getClass:" + auth.getClass().getName().toString());
 		//O.o ("session.getClass:" + session.getClass().getName().toString());

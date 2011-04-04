@@ -8,6 +8,22 @@ document.body.onLoad=onloadhk2()
 <meta name="layout" content="main"></meta>
 <script type="text/javascript">
 
+function onloadhk()
+{
+	//document.bgColor='#AAAAAA';
+	document.bgColor='rgb(232,232,232)'
+	document.hkformname.srchstr2.focus();
+}
+
+function hist()
+{
+	alert("in hist");
+}
+
+function home()
+{
+	document.getElementById('fld1userinput').focus();
+}
 
 function fnmakescratchbig()
 {
@@ -15,72 +31,57 @@ function fnmakescratchbig()
 	//document.hkformname.textareablotter.height=50
 	if (document.getElementById('fld4textareablotter').rows == 3) {
 		document.getElementById('fld4textareablotter').rows = 20; // clear name="textareablotter" id="fld4textareablotter" v
-		document.getElementById('button4More').value="Less"; // clear name="textareablotter" id="fld4textareablotter" v
 		//document.hkformname.button4More.value="more"
+		document.getElementById('fld4textareablotter').focus();
 	}
-	else {
+	else // make smaller
+	{
 		document.getElementById('fld4textareablotter').rows = 3; // clear name="textareablotter" id="fld4textareablotter" v
-		document.getElementById('button4More').value="More"; // clear name="textareablotter" id="fld4textareablotter" v
-		
+		document.getElementById('fld1userinput').focus();
 	}
 }
 
 function clearfields()
 {
-	//alert ("in hktest")
 	document.getElementById('fld1userinput').value = ""; // clear 
 	document.getElementById('fld2sought').value = ""; // clear 
 	document.getElementById('fld3saved').value = ""; // clear 
 	document.getElementById('fld4textareablotter').value = ""; // clear 
-	document.bgColor='#AAAAAA';
+	document.getElementById('fld1userinput').focus();
 }
-function onloadhk()
-{
-	//alert("hi hk in onloadhk");
-	//document.bgColor='#AAAAAA';
-	document.bgColor='rgb(232,232,232)'
-	document.hkformname.srchstr2.focus();
-}
+
 function fncopysought()
 {
-	document.getElementById('fld1userinput').value = document.getElementById('fld2sought').value; //copy sought categ 
+	addtoblotter (document.getElementById('fld2sought').value); //copy sought categ 
+	document.getElementById('fld4textareablotter').focus();
 }
 function fncopysaved()
 {
-	document.getElementById('fld1userinput').value = document.getElementById('fld3saved').value; //copy sought categ 
+	addtoblotter (document.getElementById('fld3saved').value); //copy sought categ 
+	document.getElementById('fld4textareablotter').focus();
 }
+function fncopyseek()
+{
+	addtoblotter (document.getElementById('fld1userinput').value); //copy sought categ 
+	document.getElementById('fld4textareablotter').focus();
+}
+
+function addtoblotter(s)
+{
+	document.getElementById('fld4textareablotter').value = 	document.getElementById('fld4textareablotter').value  + " ///// " + s 
+}
+
 
 function postautocomplete (s)
 {
-	//alert("Aasassa");
-	//r = "hihi"
-	//alert("in postautocomplete3r:" + r);
-	 //autotgtdivHTMLpre = document.getElementById('autotgtdiv').innerHTML;
-	 //document.getElementById('listoutput').innerHTML = ""; // clear 
 	var a = document.getElementById('fld1userinput').value;
-	//def a = document.getElementById('srchstr2').value;
-	// alert("success")
 	 
 	 var al=a.length;
 	 var last_char=a.charAt(al-1)
 	 if (last_char != ' ')
-	{	
+	 {	
 		 document.getElementById('listoutput').innerHTML = ""; // clear 
-			//Console.Writeln("testing to console")//alert("in here")
-		 //document.getElementById('autotgtdivintable').innerHTML = "in here"; // clear 
-	}
-	 else
-		 {
-		 //document.getElementById('autotgtdivintable').innerHTML = "not in here"; // clear 
-		 }
-
-
-//document.getElementById('autotgtdiv').innerHTML = "ready for action" + autotgtdivHTMLpre;
-	 //document.getElementById('autotgtdivintable').innerHTML = "ready for action2" + autotgtdivHTMLpre;
-		 
-	 
-	 //document.getElementById('autotgttextarea').innerHTML = "enhanced autocomplete:" + autotgtdivHTMLpre;
-	//alert("b")
+	 }
 }
 </script>
 </head>
@@ -121,6 +122,9 @@ TRY TO RETURN HERE AFTER AUTH - NOT WORKING YET - HOPEFULLY WILL APPEAR
 							update:[success:'autotgtdiv', failure:'autotgtdiv'], 
 							params:'\'autocomp=\' + this.value', 
 							onComplete:'postautocomplete();')} ">
+						<INPUT type="button" value="" name="buttoncopyseek" onClick="fncopyseek()">
+						<INPUT type="button" value=""  onClick="document.getElementById('fld1userinput').value = ''">
+						
 					</td>
 
 				<%-- ========== 2 TEXTFIELD SOUGHT --%>
@@ -130,7 +134,9 @@ TRY TO RETURN HERE AFTER AUTH - NOT WORKING YET - HOPEFULLY WILL APPEAR
 					</td>
 					<td>
 						<g:textField size="130" id="fld2sought" name="srchstr" value="${srchstr}" />
-	  					<INPUT type="button" value="" name="buttoncopysought" onClick="fncopysought()">
+	  					<INPUT type="button" value="" name="buttoncopysought" onClick="fncopysought();home()">
+	  					<INPUT type="button" value=""  onClick="document.getElementById('fld2sought').value = '';home()">
+	  					
 					</td>
 					<%--
 					</td>
@@ -147,7 +153,8 @@ TRY TO RETURN HERE AFTER AUTH - NOT WORKING YET - HOPEFULLY WILL APPEAR
 					</td>
 					<td>
 						<g:textField size="130"  id="fld3saved" name="lineout" value="${lineout}" />
-						<INPUT type="button" value="" name="buttoncopysaved" onClick="fncopysaved()">
+						<INPUT type="button" value="" name="buttoncopysaved" onClick="fncopysaved();home()">
+	  					<INPUT type="button" value=""  onClick="document.getElementById('fld3saved').value = '';home()">
 					</td>
 				</tr>
 				
@@ -158,9 +165,10 @@ TRY TO RETURN HERE AFTER AUTH - NOT WORKING YET - HOPEFULLY WILL APPEAR
 					<td><g:textArea name="textareablotter" id="fld4textareablotter" value="${textareablotter}" rows="3" cols="100"
 						onclick="this.focus();this.select()" />
 						<FORM>
-					 		<INPUT type="button" value="Clear" name="button2" onClick="clearfields()">
 					 		<%--<INPUT type="button" value="Grey" name="button3" onClick="document.bgColor='rgb(232,232,232)'">--%>
-					 		<INPUT type="button" value="More" name="button4Morename" id="button4More" onClick="fnmakescratchbig()">
+					 		<INPUT type="button" value="" name="button4Morename" id="button4More" onClick="fnmakescratchbig();home()">
+					 		<INPUT type="button" value=""  onClick="document.getElementById('fld4textareablotter').value = '';home()">
+					 		<INPUT type="button" value=""  onClick="document.getElementById('fld4textareablotter').value = '';home()">
 					 		
 						</FORM>
 					</td>
@@ -187,12 +195,15 @@ TRY TO RETURN HERE AFTER AUTH - NOT WORKING YET - HOPEFULLY WILL APPEAR
 	<%--
 	word order close
 	--%>
+	<INPUT type="button" value="Clear" name="button2" onClick="clearfields();	document.getElementById('fld1userinput').focus();">
+	<INPUT type="button" value="Hist" name="buttonhist" onClick="hist();">
 	<g:checkBox name="cbword" value="${cbword}" /> word 	<g:checkBox
 		name="cborder" value="${cborder}" /> order<g:checkBox name="cbclose"
 		value="${cbclose}" /> close    <g:textField size="1" name="maxAge"
 		value="${maxAge}" />&nbsp;old
 	<auth:logoutLink success="[controller:'home', action:'newUser']"
 		error="[controller:'userProfile', action:'error']">&nbsp;${user1} logoff</auth:logoutLink>
+		
 </g:form> <%--</formset>--%></div>
 </div>
 <g:if test="${flash.message}">
@@ -202,7 +213,10 @@ FLASH:	${fqFileName}
 alert($ == jQuery)
 </script> 
 
---%><%--  ===== LIST OUTPUT ======================== --%>
+--%>
+
+
+<%--  ===== LIST LIST LIST OUTPUT ======================== --%>
 
 <div id='listoutput'>
 <table>

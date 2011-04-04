@@ -7,46 +7,46 @@ import com.hk.util.O;
 
 class UtilFile {
 
-	public static String[] getFileAsStrArray (String filename, boolean bRespectComments, String commentChar, long start)
-	{
-		try
-		{
-			String stextline;
-			BufferedReader inx = null;
-			inx = new BufferedReader(new FileReader(filename));
-			int iCnt = -1;
-			Vector v = new Vector();
-			while (inx.ready())     {
-				iCnt++;
-				if (iCnt < start)
-					continue;
-				stextline = inx.readLine().trim();
-				if (!stextline.startsWith("#") && !stextline.equals("")) // if not a comment and not blank
-				{
-					v.add(stextline);
-					// iRet = Integer.valueOf(stextline).intValue();
-				}
-			}
-			inx.close();
-			
-			String[] sArr = v.toArray(new String[0]);
-			//String[] sArr = new String[v.size()];
-			//for ( int i = 0; i < v.size(); i++)
-			//{
-			//	System.err.println (v.get(i).getClass().getName());
-			//	sArr[i] = (String) v.get(i);
-			//}
-			
-			return sArr;
-		}
-		catch ( Exception e )
-		{
-			System.err.println("error in file:" + filename, e);
-			O.or("error in file:" + filename, e);
-		}
-		return null;
-		
-	}
+//	public static String[] getFileAsStrArray (String filename, boolean bRespectComments, String commentChar, long start)
+//	{
+//		try
+//		{
+//			String stextline;
+//			BufferedReader inx = null;
+//			inx = new BufferedReader(new FileReader(filename));
+//			int iCnt = -1;
+//			Vector v = new Vector();
+//			while (inx.ready())     {
+//				iCnt++;
+//				if (iCnt < start)
+//					continue;
+//				stextline = inx.readLine().trim();
+//				if (!stextline.startsWith("#") && !stextline.equals("")) // if not a comment and not blank
+//				{
+//					v.add(stextline);
+//					// iRet = Integer.valueOf(stextline).intValue();
+//				}
+//			}
+//			inx.close();
+//			
+//			String[] sArr = v.toArray(new String[0]);
+//			//String[] sArr = new String[v.size()];
+//			//for ( int i = 0; i < v.size(); i++)
+//			//{
+//			//	System.err.println (v.get(i).getClass().getName());
+//			//	sArr[i] = (String) v.get(i);
+//			//}
+//			
+//			return sArr;
+//		}
+//		catch ( Exception e )
+//		{
+//			System.err.println("error in file:" + filename, e);
+//			O.or("error in file:" + filename, e);
+//		}
+//		return null;
+//		
+//	}
 	public static void TestHk()
 	{
 		
@@ -77,8 +77,9 @@ class UtilFile {
 		
 	}
 
-	public static List fileAsList (String filename, Boolean bRespectComments, String commentChar, Long lineCountToStartKeepAt)
+	public static List fileAsList (String filename, Boolean bRespectComments, String commentChar, Long numLinesWanted)
 	{
+		long lineCountToStartKeepAt = fileLen(filename) - numLinesWanted;
 		List alRtn = new ArrayList<String>();
 		try
 		{
@@ -95,7 +96,7 @@ class UtilFile {
 					continue;
 				if (!stextline.startsWith("#") && !stextline.equals("")) // if not a comment and not blank
 				{
-					//O.o("adding file line [" + iCnt + "] iter" + stextline);
+					//O.o("in UtilFIle, got  [" + iCnt + "] iter" + stextline, false);
 						 
 					alRtn.add(stextline);
 					// iRet = Integer.valueOf(stextline).intValue();
@@ -108,6 +109,7 @@ class UtilFile {
 		}
 		catch ( Exception e )
 		{
+			e.printStackTrace();
 			System.err.println("error in file:" + filename, e);
 			O.or("error in file:" + filename, e);
 		}

@@ -3,6 +3,11 @@ package com.hk.util;
 public class O {
 
 	private static long lastms = 0;
+	public static void o(String s, boolean date)
+	{
+		o(new java.util.Date().toString() + ": " + s);
+	}
+
 	public static void o(String s)
 	{
 		long now = System.currentTimeMillis();

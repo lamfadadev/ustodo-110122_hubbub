@@ -6,13 +6,20 @@ import org.hsqldb.lib.HashSet;
 
 public class UtilTags {
 
-	public static ArrayList<String> getAutoCompleteLinesOut(ArrayList<String> fileLines, String autocomp)
+	public static ArrayList<String> getAutoCompleteLinesOut(ArrayList<String> fileLines, String autocomp, long countwanted, String user1)
 	{
+		
+		def fqFileName = '/Users/hkon/sw/ustodo/favs' + user1 + '.csv';
+		long fileLen = com.hk.util.UtilFile.fileLen (fqFileName);
+		long lineCountToStartKeepAt = fileLen - countwanted;  // 500 hbk
+		if (lineCountToStartKeepAt < 0)
+			lineCountToStartKeepAt = 0
+
 		HashSet<String> setTagsAlreadyKnown = new HashSet<String>(); 
 		fileLines = fileLines.reverse ();
 				//String[] sarr = (String[] ) fileLines.toArray(new String[0] a);
 		ArrayList alTagsRtn = new ArrayList();  
-		if (autocomp.length() > 2)
+		if (true || autocomp.length() > 2)
 		{
 			fileLines.each {
 				String fileLine = it;
@@ -26,29 +33,29 @@ public class UtilTags {
 					fileLine = age + " " + fileLine [20..-1]
 						
 										//hbk 110401 String[] tags = fileLine.split(" / ");
-					String[] tags = new String[2];
+					String[] tags = new String[1];
 					tags[0] = fileLine; 
-					tags[1] = ""; 
+					//tags[1] = ""; 
 					// BREAK LINE INTO TAGS
 					int iCnt = -1; 
 					tags.each {
 						iCnt++;
 						String filelineNoDate = it;
-						//O.o("check tag contains tag[" + tag + "] srchStr [" + autocomp + "]");
+						//O.o("check  contains filelineNoDate [" + filelineNoDate + "] srchStr [" + autocomp + "]");
 						if (autocomp != null && filelineNoDate != null && filelineNoDate.contains(autocomp))
 						{
 							filelineNoDate = filelineNoDate.trim();
 							
 							if (!setTagsAlreadyKnown.contains(filelineNoDate))
 							{
-								//O.o("adding tag hist [" + tag.trim() + "] srchStr [" + autocomp + "]");
-								if (iCnt < (tags.length-1)) // don't want instance data - assumed to be after last " / "
-								{
+								//if (iCnt < (tags.length-1)) // don't want instance data - assumed to be after last " / "
+								//{
 									filelineNoDate = filelineNoDate.trim()
 									filelineNoDate = UrlConverterHttp.detectAndConvertURLs (filelineNoDate);
 									
+									//O.o("addingTagHist2 filelineNoDate [" + filelineNoDate + "] from autocomp [" + autocomp + "]");
 									alTagsRtn.add (filelineNoDate);
-								}
+								//}
 								setTagsAlreadyKnown.add filelineNoDate
 							}
 						}
@@ -61,7 +68,7 @@ public class UtilTags {
 //					alTagsRtn.add ("sorry hombre, no matches for " + autocomp);
 			}
 			
-			O.o ("generated [" + alTagsRtn.size() + "] tags from [" + fileLines.size()+ "] filelines")
+			//O.o ("generated [" + alTagsRtn.size() + "] tags from [" + fileLines.size()+ "] filelines")
 		}
 		else
 		{
