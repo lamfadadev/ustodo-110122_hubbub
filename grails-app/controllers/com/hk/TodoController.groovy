@@ -42,7 +42,13 @@ class TodoController {
 		//O.o("params.lineout:" + params.lineout);
 		//O.o("params.srchstr:" + params.srchstr);
 		//O.o("params.textareablotter:" + params.textareablotter);
+		
+		def paramsInSearch = params.srchstr2;
+		def paramsInSearched = params.srchstr;
+		def paramsInLineout = params.lineout; // saved
+		def paramsIntextareablotter = params.textareablotter; // scratch
 		def textareablotter = params.textareablotter; 
+		
 		O.o ("TODO index request.class:" + request.getClass().getName());
 		if (!authenticationService.isLoggedIn(request))
 		{
@@ -105,8 +111,11 @@ class TodoController {
 
 			// WRITE WRITE WRITE WRITE WRITE WRITE WRITE WRITE WRITE WRITE WRITE WRITE WRITE
 			String lineout = params.lineout;
+			boolean bDidWrite = false;
+			String srchstrout = paramsInSearch;
 			if (srchstr.trim().startsWith("w ") || srchstr.trim().endsWith(" w") )
 			{
+				bDidWrite=true;
 				O.o("pre trimmed srchstr in write:" + srchstr);
 				bwrite = true;
 				if (srchstr.trim().startsWith("w "))
@@ -124,6 +133,7 @@ class TodoController {
 				}
 				//mode = "Saved: [" + lineout+ "] &nbsp; to ["+fqFileName+"]"
 				// SAVE WRITE LINE TO IN MEM ARRAY REFLECTION OF FILE FOR AUTOCOMPLETE
+				// MAY NOT BE IN USE - READING FILE EVERY TIME CURRENTLY
 				ArrayList alfilelines = session.getAttribute ("alfilelines");
 				if (alfilelines != null) 
 				{
@@ -140,12 +150,13 @@ class TodoController {
 
 				//O.o("write pos last / [" + srchstr.lastIndexOf('/') + "] on str [" + srchstr + "]");
 				//srchstr = srchstr [0..(srchstr.lastIndexOf(' / ')-1)] + " / "
-				textareablotter = "[" + lineout + "]   " + textareablotter 
+				textareablotter = "[w " + lineout[20..-1] + "]   " + textareablotter 
 				//O.o "ss:" + srchstr;
+				srchstrout = srchstr [0..(srchstr.lastIndexOf(' / '))] + " / "
 			}
-			else
+			else // no write
 			{
-				textareablotter = "[" + srchstr + "]   " + textareablotter 
+				textareablotter = "[" + srchstr + "]   " + textareablotter
 			}
 
 			// SRCH SRCH SRCH SRCH SRCH SRCH
@@ -249,16 +260,24 @@ class TodoController {
 				params.maxAge = "3y"
 
 			//		O.o("textareablotterx: "+textareablotter);
-			[srchstr: srchstr, seq:seq, alFileLines: alFileLines , cbword: params.cbword
+			if (bDidWrite)
+			{
+				lineout = lineout[19..-1] + "  |  " + paramsInLineout;
+			}
+			[srchstr2: srchstrout , srchstr: srchstr + "  |  " +  paramsInSearched , seq:seq, alFileLines: alFileLines , cbword: params.cbword
 						, cborder: params.cborder, hktest: "hkteststr", maxAge: params.maxAge, alFileLines: alFileLines,
-						fqFileName: ("<font color=\"GREEN\">"+mode), seq:seq,  user1:user1, lineout: lineout,
+						fqFileName: ("<font color=\"GREEN\">"+mode), seq:seq,  user1:user1, 
+						lineout: lineout,
 						textareablotter: textareablotter
 						]
 		}
 	}
 
 
-
+//	def paramsInSearch = params.srchstr2;
+//	def paramsInSearched = params.srchstr;
+//	def paramsInLineout = params.lineout; // saved
+//	def paramsInTextareablotter = params.textareablotter;
 	
 	def autocompleteSearch = {
 		user1 = getUser();

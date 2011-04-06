@@ -50,6 +50,11 @@ function clearfields()
 	document.getElementById('fld1userinput').focus();
 }
 
+function fncopyseek()
+{
+	addtoblotter (document.getElementById('fld1userinput').value); //copy sought categ 
+	document.getElementById('fld4textareablotter').focus();
+}
 function fncopysought()
 {
 	addtoblotter (document.getElementById('fld2sought').value); //copy sought categ 
@@ -60,15 +65,20 @@ function fncopysaved()
 	addtoblotter (document.getElementById('fld3saved').value); //copy sought categ 
 	document.getElementById('fld4textareablotter').focus();
 }
-function fncopyseek()
+function fncopyscratch()
 {
-	addtoblotter (document.getElementById('fld1userinput').value); //copy sought categ 
-	document.getElementById('fld4textareablotter').focus();
+	document.getElementById('fld1userinput').value = document.getElementById('fld4textareablotter').value + ' w'  
+	document.getElementById('fld1userinput').focus();
+}
+
+function fnclearsaved()
+{
+	document.getElementById('fld3saved').value = ''
 }
 
 function addtoblotter(s)
 {
-	document.getElementById('fld4textareablotter').value = 	document.getElementById('fld4textareablotter').value  + " ///// " + s 
+	document.getElementById('fld4textareablotter').value = 	document.getElementById('fld4textareablotter').value  + "  |  " + s 
 }
 
 
@@ -108,34 +118,34 @@ TRY TO RETURN HERE AFTER AUTH - NOT WORKING YET - HOPEFULLY WILL APPEAR
 		<tr>
 			<td>
 			<table>
-				<%-- ========== 1 BUTTON AND AJAX FIELD -- INPUT REMOTE FUNCTION AUTOCOMPLETE SOURCE --%>
+				<%-- ========== 1 BUTTON AND AJAX FIELD -- INPUT REMOTE FUNCTION AUTOCOMPLETE SOURCE fld1userinput --%>
 				<tr>
 					<td><font size=-2> <g:submitButton  name="search"
 						value="Do" /></font><%--
 						<font size=-2>Seek:</font>&nbsp;&nbsp;
 						
 					--%></td>
-					<td><input name='srchstr2' id='fld1userinput' type="text"
-						size="125" value="${srchstr}"
+					<td><input title="Search - fulltext with substring - over instances, categories, workflow step names, field names." name='srchstr2' id='fld1userinput' type="text"
+						size="125" value="${srchstr2}"
 						onkeyup="${
 							remoteFunction (action:'autocompleteSearch',
 							update:[success:'autotgtdiv', failure:'autotgtdiv'], 
 							params:'\'autocomp=\' + this.value', 
 							onComplete:'postautocomplete();')} ">
-						<INPUT type="button" value="" name="buttoncopyseek" onClick="fncopyseek()">
-						<INPUT type="button" value=""  onClick="document.getElementById('fld1userinput').value = ''">
+						<INPUT type="button" value="" title="Copy to Scratch." name="buttoncopyseek" onClick="fncopyseek()">
+						<INPUT type="button" value="" title="Clear." onClick="document.getElementById('fld1userinput').value = ''">
 						
 					</td>
 
-				<%-- ========== 2 TEXTFIELD SOUGHT --%>
+				<%-- ========== 2 TEXTFIELD Searched fld2sought --%>
 				</tr>
 				<tr>
-					<td><font size=-2>Sought:</font>&nbsp;&nbsp;
+					<td><font size=-2>Searched:</font>&nbsp;&nbsp;
 					</td>
 					<td>
-						<g:textField size="130" id="fld2sought" name="srchstr" value="${srchstr}" />
-	  					<INPUT type="button" value="" name="buttoncopysought" onClick="fncopysought();home()">
-	  					<INPUT type="button" value=""  onClick="document.getElementById('fld2sought').value = '';home()">
+						<g:textField size="130" title="Searched. What you last Searched for." id="fld2sought" name="srchstr" value="${srchstr}" />
+	  					<INPUT type="button" value="" name="buttoncopysought" title="Copy to Scratch." onClick="fncopysought()">
+	  					<INPUT type="button" value="" title="Clear." onClick="document.getElementById('fld2sought').value = ''">
 	  					
 					</td>
 					<%--
@@ -146,29 +156,29 @@ TRY TO RETURN HERE AFTER AUTH - NOT WORKING YET - HOPEFULLY WILL APPEAR
 					</td>
 				--%></tr>
 
-				<%-- ========== 3 TEXTFIELD SAVED --%>
+				<%-- ========== 3 TEXTFIELD SAVED fld3saved --%>
 				<tr>
 					</td>
 						<td><font size=-2>Saved:</font>&nbsp;&nbsp;
 					</td>
 					<td>
-						<g:textField size="130"  id="fld3saved" name="lineout" value="${lineout}" />
-						<INPUT type="button" value="" name="buttoncopysaved" onClick="fncopysaved();home()">
-	  					<INPUT type="button" value=""  onClick="document.getElementById('fld3saved').value = '';home()">
+						<g:textField size="130"   title="Saved.  What you last Saved." id="fld3saved" name="lineout" value="${lineout}" />
+						<INPUT type="button" value="" name="buttoncopysaved" title="Copy to Scratch."onClick="fncopysaved()">
+	  					<INPUT type="button" value=""  title="Clear." onClick="fnclearsaved()">
 					</td>
 				</tr>
 				
-				<%-- ========== 4 TEXTAREA SCRATCH --%>
+				<%-- ========== 4 TEXTAREA SCRATCH fld4textareablotter --%>
 				<tr>
 					<td><font size=-2>Scratch:</font>&nbsp;&nbsp;
 					</td>
-					<td><g:textArea name="textareablotter" id="fld4textareablotter" value="${textareablotter}" rows="3" cols="100"
+					<td><g:textArea name="textareablotter" title="Scratch.  Saved, Searhed, and whatever else you do in here." id="fld4textareablotter" value="${textareablotter}" rows="3" cols="100"
 						onclick="this.focus();this.select()" />
 						<FORM>
 					 		<%--<INPUT type="button" value="Grey" name="button3" onClick="document.bgColor='rgb(232,232,232)'">--%>
-					 		<INPUT type="button" value="" name="button4Morename" id="button4More" onClick="fnmakescratchbig();home()">
-					 		<INPUT type="button" value=""  onClick="document.getElementById('fld4textareablotter').value = '';home()">
-					 		<INPUT type="button" value=""  onClick="document.getElementById('fld4textareablotter').value = '';home()">
+					 		<INPUT type="button" title="Copy to Search ('w'rite enabled)." value=""  onClick="fncopyscratch()">
+		  					<INPUT type="button" value=""  title="Clear." onClick="document.getElementById('fld4textareablotter').value = ''">
+					 		<INPUT type="button" value="" title="Toggle Scratch size." name="button4Morename" id="button4More" onClick="fnmakescratchbig()">
 					 		
 						</FORM>
 					</td>
