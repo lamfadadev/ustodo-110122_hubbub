@@ -9,6 +9,7 @@ import grails.converters.JSON;
 
 import org.apache.tomcat.util.digester.ObjectParamRule;
 import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
+import org.codehaus.groovy.grails.commons.ConfigurationHolder
 
 
 class TodoController {
@@ -69,9 +70,15 @@ class TodoController {
 			//				
 			//			}
 			
-			
-			fqFileName = '/Users/hkon/sw/ustodo/favs' + user1 + '.csv';
-
+			def apath = org.codehaus.groovy.grails.commons.ConfigurationHolder.getFlatConfig()
+			println apath.dump();
+			def p = apath.get('mystuff.settings.filepath')
+			O.o p.dump()
+			O.o p, false
+			def j = ConfigurationHolder.getConfig().getProperty('mystuff.settings.filepath')
+			O.o j.dump()
+			fqFileName = p+'/favs' + user1 + '.csv';
+            O.o fqFileName, false
 			seq++;
 			String mode = ""
 
@@ -262,7 +269,7 @@ class TodoController {
 			//		O.o("textareablotterx: "+textareablotter);
 			if (bDidWrite)
 			{
-				lineout = lineout[19..-1] + "  |  " + paramsInLineout;
+				lineout = lineout[19..-1] + "  |  " + paramsInLineout; // KEEP HISTORY OF SAVES
 			}
 			[srchstr2: srchstrout , srchstr: srchstr + "  |  " +  paramsInSearched , seq:seq, alFileLines: alFileLines , cbword: params.cbword
 						, cborder: params.cborder, hktest: "hkteststr", maxAge: params.maxAge, alFileLines: alFileLines,
