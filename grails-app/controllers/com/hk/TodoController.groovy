@@ -20,7 +20,7 @@ class TodoController {
 	private List<String> altags = null;
 	private String user1 = null;
 	private String fqFileName = null;
-	private def timeToRestartAuthCheck = "2011-04-10 18:00:00";
+	private def timeToRestartAuthCheck = "2011-04-10 17:00:00";
 	
 	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
