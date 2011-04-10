@@ -1,4 +1,5 @@
 <%@page import="com.hk.util.FileLine"%>
+<%@page import="com.hk.util.UtilSearch"%>
 <%@page import="org.junit.internal.matchers.CombinableMatcher"%>
 <html>
 <head><%--
@@ -14,7 +15,6 @@ function onloadhk()
 	document.bgColor='rgb(232,232,232)'
 	document.hkformname.srchstr2.focus();
 }
-
 function hist()
 {
 	alert("in hist");
@@ -266,7 +266,7 @@ alert($ == jQuery)
 				</td>
 
 				<td><font color=${ (i % 2) ==0? "grey" : "black" }>&nbsp;
-				${fl.lineMinusDateStr} </font></td>
+				${com.hk.util.UtilSearch.colorTags( fl.lineMinusDateStr, srchstr2, "green")} </font></td>
 				<%--<g:createLink url="[controller:'milesAccount', action:'generateTooltip', params:[id:${it.id}, extra:'extra']]" />--%>
 
 			</tr>

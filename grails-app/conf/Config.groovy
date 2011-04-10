@@ -84,6 +84,8 @@ log4j = {
 	
 }
 
-mystuff.settings.filepath="/Users/sean/UsToDoTest"
+mystuff.settings.filepath="/Users/hkon/sw/ustodo"
+mystuff.settings.noauthuser="ckckck"
+
 		
 
