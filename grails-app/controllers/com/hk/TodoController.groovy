@@ -67,15 +67,7 @@ class TodoController {
 			O.o ("using auth, user1:");  // user1.toString();
 		}
 
-		def apath = org.codehaus.groovy.grails.commons.ConfigurationHolder.getFlatConfig()
-		//println apath.dump();
-		def p = apath.get('mystuff.settings.filepath')
-		
-		//O.o p.dump()
-		//O.o p, false
-		def j = ConfigurationHolder.getConfig().getProperty('mystuff.settings.filepath')
-		//O.o j.dump()
-		fqFileName = p+'/favs' + user1 + '.csv';
+		getUserName();
         //O.o fqFileName, false
 		seq++;
 		String mode = ""
@@ -230,6 +222,18 @@ class TodoController {
 					textareablotter: textareablotter
 					]
 	}
+
+	def getUserName() {
+		def apath = org.codehaus.groovy.grails.commons.ConfigurationHolder.getFlatConfig()
+		//println apath.dump();
+		def p = apath.get('mystuff.settings.filepath')
+
+		//O.o p.dump()
+		//O.o p, false
+		//def j = ConfigurationHolder.getConfig().getProperty('mystuff.settings.filepath')
+		//O.o j.dump()
+		fqFileName = p+'/favs' + user1 + '.csv'
+	}
 	
 
 	
@@ -263,14 +267,9 @@ class TodoController {
 			}
 		}
 
-		def apath = org.codehaus.groovy.grails.commons.ConfigurationHolder.getFlatConfig()
-		//println apath.dump();
-		def p = apath.get('mystuff.settings.filepath')
 		
-		//O.o p.dump()
-		//O.o p, false
-		def j = ConfigurationHolder.getConfig().getProperty('mystuff.settings.filepath')
-		//O.o j.dump()
+		def p = getUserName()
+		
 		fqFileName = p+'/favs' + user1 + '.csv';
 		
 		//O.o ("TODO autocompleteSearch fqFileName :" + fqFileName );
